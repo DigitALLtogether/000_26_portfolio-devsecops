@@ -37,6 +37,8 @@ Nunca commitar:
 
 ## Fluxo de trabalho editorial
 
+**Início de cada sessão:** correr `git pull` para garantir que o repositório local está sincronizado com o GitHub antes de editar qualquer ficheiro.
+
 Ao adicionar conteúdo novo:
 1. Colocar na subpasta correcta dentro da fase/módulo correspondente.
 2. Se for um lab ou script novo, verificar se o módulo já tem README — actualizar se necessário.
