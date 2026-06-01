@@ -16,9 +16,9 @@ Cada pasta corresponde a uma fase e certificação — notas reais, labs pratica
 | Fase 2 | DevSecOps Core | ⬜ Pendente | EX280, EX374, Vault, NSE4, Dynatrace, Elastic |
 | Fase 3 | Pro + Security | ⬜ Pendente | AWS DevOps Pro, AWS Security, CKS, EX430, PCNSA |
 | Fase 4 | IA Aplicada | ⬜ Pendente | AWS AI/ML, GCP Pro DevOps, Databricks, GitHub Copilot |
-| Diário | Registo semanal | 🔵 Contínuo | — |
+| Diário | Diário de sessões | 🔵 Contínuo | — |
 
-> Ficheiros do diário: `AAAA-WNN-tema.md` (ex: `2026-W23-inicio-percurso.md`)
+> Ficheiros do diário: `AAAA-MM-DD_tema.md` (ex: `2026-06-01_inicio-percurso.md`)
 
 ## Stack técnica
 `Linux` `Networking` `Python` `Bash` `Docker` `Kubernetes` `Terraform` `Ansible`  

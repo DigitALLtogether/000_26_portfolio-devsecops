@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap DevSecOps — Kody</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+:root {
+  --bg: #0f0f0f;
+  --bg2: #161616;
+  --bg3: #1e1e1e;
+  --bg4: #252525;
+  --border: #2a2a2a;
+  --border2: #333;
+  --text: #e8e6e0;
+  --text2: #a8a49c;
+  --text3: #666;
+  --accent: #534AB7;
+  --accent2: #7B74D4;
+  --accent-glow: rgba(83,74,183,0.15);
+  --green: #1D9E75;
+  --green2: #25C491;
+  --green-glow: rgba(29,158,117,0.12);
+  --blue: #378ADD;
+  --blue-glow: rgba(55,138,221,0.12);
+  --amber: #BA7517;
+  --amber2: #E8971E;
+  --amber-glow: rgba(186,117,23,0.12);
+  --red: #E24B4A;
+  --red-glow: rgba(226,75,74,0.1);
+  --kyn: #0C6CF2;
+  --kyn-glow: rgba(12,108,242,0.12);
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.logo {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.logo span { color: var(--accent2); }
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.subtitle {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--mono);
+  margin-top: 2px;
+}
+
+/* ── NAV TABS ── */
+.nav {
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.tab:hover { color: var(--text2); background: var(--bg3); }
+.tab.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tab.on-green { background: var(--green); border-color: var(--green); color: #fff; }
+.tab.on-blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+.tab.on-amber { background: var(--amber); border-color: var(--amber); color: #fff; }
+
+/* ── PANELS ── */
+.panel { display: none; padding: 24px; max-width: 1100px; margin: 0 auto; }
+.panel.on { display: block; }
+
+/* ── SECTION LABEL ── */
+.sec {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin: 24px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── GRID ── */
+.g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media(max-width:700px) { .g2,.g3,.g4 { grid-template-columns: 1fr; } }
+@media(max-width:900px) { .g3 { grid-template-columns: 1fr 1fr; } .g4 { grid-template-columns: 1fr 1fr; } }
+
+/* ── CARD ── */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  transition: border-color .15s;
+}
+.card:hover { border-color: var(--border2); }
+.card.c-accent { border-color: var(--accent); background: var(--bg2); }
+.card.c-green { border-color: var(--green); }
+.card.c-blue { border-color: var(--blue); }
+.card.c-amber { border-color: var(--amber); }
+.card.c-red { border-color: var(--red); }
+.ct { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.cd { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+/* ── TAGS ── */
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+.tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.t-kyn { background: rgba(12,108,242,0.15); color: #5B9CF6; border: 1px solid rgba(12,108,242,0.3); }
+.t-free { background: rgba(29,158,117,0.12); color: var(--green2); border: 1px solid rgba(29,158,117,0.25); }
+.t-paid { background: rgba(186,117,23,0.12); color: var(--amber2); border: 1px solid rgba(186,117,23,0.25); }
+.t-cert { background: rgba(83,74,183,0.15); color: var(--accent2); border: 1px solid rgba(83,74,183,0.3); }
+.t-port { background: rgba(29,158,117,0.1); color: var(--green2); border: 1px solid rgba(29,158,117,0.2); }
+.t-gap { background: rgba(226,75,74,0.1); color: #F87171; border: 1px solid rgba(226,75,74,0.25); }
+
+/* ── METRIC CARDS ── */
+.metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 4px; }
+@media(max-width:600px) { .metrics { grid-template-columns: 1fr 1fr; } }
+.metric {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 12px;
+  text-align: center;
+}
+.mn { font-size: 26px; font-weight: 600; font-family: var(--mono); line-height: 1; }
+.ml { font-size: 10px; color: var(--text3); margin-top: 5px; font-family: var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+
+/* ── PHASE PROGRESS BARS ── */
+.phase-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.phase-label { font-size: 12px; font-weight: 500; min-width: 100px; color: var(--text); }
+.phase-sub { font-size: 10px; color: var(--text3); font-family: var(--mono); min-width: 80px; }
+.bar-wrap { flex: 1; height: 6px; background: var(--bg4); border-radius: 3px; overflow: hidden; }
+.bar { height: 100%; border-radius: 3px; transition: width .6s ease; }
+.phase-val { font-size: 11px; color: var(--text2); min-width: 110px; text-align: right; font-family: var(--mono); }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 20px; }
+.tl-item { position: relative; margin-bottom: 20px; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -17px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--border2);
+  background: var(--bg);
+}
+.tl-item.done::before { background: var(--green); border-color: var(--green); }
+.tl-item.active::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.tl-item::after {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 14px;
+  width: 2px;
+  bottom: -20px;
+  background: var(--border);
+}
+.tl-item:last-child::after { display: none; }
+.tl-date { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: .06em; margin-bottom: 3px; }
+.tl-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.tl-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.tl-certs { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--bg4);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-weight: 500;
+}
+.pill.main { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pill.green { background: var(--green); border-color: var(--green); color: #fff; }
+.pill.blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+.pill.amber { background: var(--amber); border-color: var(--amber); color: #fff; }
+.pill.kyn { background: var(--kyn); border-color: var(--kyn); color: #fff; }
+
+/* ── COST TABLE ── */
+.cost-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.cost-table th {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.cost-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  vertical-align: middle;
+}
+.cost-table tr:hover td { background: var(--bg3); }
+.cost-table td:first-child { color: var(--text); font-weight: 500; }
+.badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+.badge-kyn { background: rgba(12,108,242,0.15); color: #5B9CF6; border: 1px solid rgba(12,108,242,0.3); }
+.badge-free { background: rgba(29,158,117,0.12); color: var(--green2); border: 1px solid rgba(29,158,117,0.25); }
+.badge-paid { background: rgba(186,117,23,0.12); color: var(--amber2); border: 1px solid rgba(186,117,23,0.25); }
+
+/* ── NOTE BOX ── */
+.note {
+  font-size: 12px;
+  color: var(--text2);
+  padding: 10px 14px;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  background: var(--accent-glow);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+.note.green { border-left-color: var(--green); background: var(--green-glow); }
+.note.amber { border-left-color: var(--amber); background: var(--amber-glow); }
+.note.red { border-left-color: var(--red); background: var(--red-glow); }
+
+/* ── PHASE HEADER ── */
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.phase-num {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+}
+.phase-info {}
+.phase-name { font-size: 17px; font-weight: 600; }
+.phase-meta { font-size: 11px; color: var(--text3); font-family: var(--mono); margin-top: 2px; }
+
+/* ── PORT BOX ── */
+.port-box {
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  padding: 12px 14px;
+  background: var(--green-glow);
+  margin-top: 10px;
+}
+.port-title { font-size: 12px; font-weight: 600; color: var(--green2); margin-bottom: 8px; font-family: var(--mono); letter-spacing: .04em; }
+.port-item { display: flex; gap: 8px; margin-bottom: 5px; align-items: start; }
+.port-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 5px; }
+.port-text { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.port-text strong { color: var(--text); }
+
+/* ── MARKET ── */
+.salary-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+}
+.salary-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.salary-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.salary-text { font-size: 12px; color: var(--text2); }
+.salary-text strong { color: var(--text); }
+
+/* ── RISK CARD ── */
+.risk-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+  margin-bottom: 8px;
+}
+.risk-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.risk-high { background: rgba(226,75,74,0.15); color: #F87171; border: 1px solid rgba(226,75,74,0.3); }
+.risk-med { background: rgba(186,117,23,0.12); color: var(--amber2); border: 1px solid rgba(186,117,23,0.25); }
+.risk-low { background: rgba(83,74,183,0.15); color: var(--accent2); border: 1px solid rgba(83,74,183,0.3); }
+
+/* ── PHASE NAV ── */
+.phase-nav { display: flex; gap: 5px; margin-bottom: 20px; flex-wrap: wrap; }
+.pnav {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all .15s;
+  font-weight: 500;
+}
+.pnav:hover { color: var(--text2); border-color: var(--border2); }
+.pnav.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ── SUB PANEL ── */
+.spanel { display: none; }
+.spanel.on { display: block; }
+
+/* divider */
+.div { height: 1px; background: var(--border); margin: 20px 0; }
+
+/* time badge */
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--bg4);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  margin-left: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="title">Roadmap DevSecOps</div>
+      <div class="subtitle">kyndryl · sysadmin l1 → devsecops senior · 2026–2031+</div>
+    </div>
+    <div class="logo">Powered by <span>Kody</span></div>
+  </div>
+  <div class="nav">
+    <button class="tab on" onclick="go('dashboard')">Dashboard</button>
+    <button class="tab" onclick="go('fase0')">Fase 0</button>
+    <button class="tab" onclick="go('fase1')">Fase 1</button>
+    <button class="tab" onclick="go('fase2')">Fase 2</button>
+    <button class="tab" onclick="go('fase3')">Fase 3</button>
+    <button class="tab" onclick="go('fase4')">Fase 4</button>
+    <button class="tab" onclick="go('custeamento')">Custeamento</button>
+    <button class="tab" onclick="go('cronologia')">Cronologia</button>
+    <button class="tab" onclick="go('mercado')">Mercado</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DASHBOARD
+═══════════════════════════════════════ -->
+<div class="panel on" id="p-dashboard">
+
+  <div class="sec">Resumo executivo</div>
+  <div class="metrics">
+    <div class="metric"><div class="mn" style="color:var(--accent)">27</div><div class="ml">Certificações totais</div></div>
+    <div class="metric"><div class="mn" style="color:var(--kyn)">~80%</div><div class="ml">Via Kyndryl</div></div>
+    <div class="metric"><div class="mn" style="color:var(--amber2)">~€300</div><div class="ml">Custo próprio estimado</div></div>
+    <div class="metric"><div class="mn" style="color:var(--green2)">4–5</div><div class="ml">Anos Fase 3 completa</div></div>
+  </div>
+
+  <div class="sec">Progressão de valor de mercado</div>
+  <div class="phase-row"><div class="phase-label">Hoje</div><div class="bar-wrap"><div class="bar" style="width:10%;background:#444"></div></div><div class="phase-val" style="color:var(--text3)">Sysadmin L1</div></div>
+  <div class="phase-row"><div class="phase-label">Fase 0 ✓</div><div class="bar-wrap"><div class="bar" style="width:28%;background:var(--blue)"></div></div><div class="phase-val" style="color:var(--blue)">Junior DevOps</div></div>
+  <div class="phase-row"><div class="phase-label">Fase 1 ✓</div><div class="bar-wrap"><div class="bar" style="width:47%;background:var(--accent)"></div></div><div class="phase-val" style="color:var(--accent2)">DevOps Engineer</div></div>
+  <div class="phase-row"><div class="phase-label">Fase 2 ✓</div><div class="bar-wrap"><div class="bar" style="width:65%;background:var(--accent)"></div></div><div class="phase-val" style="color:var(--accent2)">DevSecOps Engineer</div></div>
+  <div class="phase-row"><div class="phase-label">Fase 3 ✓</div><div class="bar-wrap"><div class="bar" style="width:85%;background:var(--green)"></div></div><div class="phase-val" style="color:var(--green2)">Sénior DevSecOps</div></div>
+  <div class="phase-row"><div class="phase-label">Fase 4 ✓</div><div class="bar-wrap"><div class="bar" style="width:97%;background:var(--green)"></div></div><div class="phase-val" style="color:var(--green2)">DevSecOps + AI Lead</div></div>
+
+  <div class="sec">Fases — visão geral</div>
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Fase 0 — Fundações <span class="time-badge">3–4 meses</span></div>
+      <div class="cd">Linux, Redes, Segurança base, Python, Bash, Cloud, GitHub, Portfólio</div>
+      <div class="tags">
+        <span class="tag t-cert">RHCSA</span><span class="tag t-cert">CCNA</span><span class="tag t-cert">NSE 1+2+3</span><span class="tag t-cert">AWS CCP</span><span class="tag t-cert">GitHub Foundations</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct">Fase 1 — Containers & IaC <span class="time-badge">4–5 meses</span></div>
+      <div class="cd">Docker, Kubernetes, Terraform, Ansible, GitOps, Supply Chain Security</div>
+      <div class="tags">
+        <span class="tag t-cert">CKA</span><span class="tag t-cert">Terraform Assoc.</span><span class="tag t-cert">RHCE</span><span class="tag t-cert">AWS SysOps</span><span class="tag t-cert">GitHub Actions</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct">Fase 2 — DevSecOps Core <span class="time-badge">5–6 meses</span></div>
+      <div class="cd">OpenShift, AAP, Vault, Observabilidade, Threat Modeling, OWASP, Segurança integrada</div>
+      <div class="tags">
+        <span class="tag t-cert">EX280</span><span class="tag t-cert">EX374</span><span class="tag t-cert">Vault</span><span class="tag t-cert">NSE 4</span><span class="tag t-cert">Dynatrace</span><span class="tag t-cert">Elastic</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct">Fase 3 — Pro + Security <span class="time-badge">5–6 meses</span></div>
+      <div class="cd">AWS Professional, CKS, OpenShift ACS, IR, Compliance como código</div>
+      <div class="tags">
+        <span class="tag t-cert">AWS DevOps Pro</span><span class="tag t-cert">AWS Security</span><span class="tag t-cert">CKS</span><span class="tag t-cert">PCNSA</span><span class="tag t-cert">EX430</span>
+      </div>
+    </div>
+    <div class="card" style="grid-column: span 2">
+      <div class="ct">Fase 4 — IA Aplicada <span class="time-badge">contínuo</span></div>
+      <div class="cd">AWS AI/ML, GCP, Databricks, Nvidia, GitHub Copilot, projectos IA aplicada a SecOps</div>
+      <div class="tags">
+        <span class="tag t-cert">AWS AI Practitioner</span><span class="tag t-cert">AWS ML Engineer</span><span class="tag t-cert">GCP Pro DevOps</span><span class="tag t-cert">Databricks</span><span class="tag t-cert">GitHub Copilot</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">Percurso Red Hat — RHCA alcançável</div>
+  <div class="card c-accent">
+    <div class="cd" style="margin-bottom:8px">6 especialistas Red Hat construídos naturalmente ao longo do percurso → <strong style="color:var(--accent2)">RHCA (Red Hat Certified Architect)</strong> alcançável sem esforço extra.</div>
+    <div class="tl-certs">
+      <span class="pill main">RHCSA EX200</span>
+      <span style="color:var(--text3);font-size:13px">→</span>
+      <span class="pill main">RHCE EX294</span>
+      <span style="color:var(--text3);font-size:13px">→</span>
+      <span class="pill main">EX280 OpenShift</span>
+      <span style="color:var(--text3);font-size:13px">→</span>
+      <span class="pill main">EX374 AAP Dev</span>
+      <span style="color:var(--text3);font-size:13px">→</span>
+      <span class="pill main">EX430 ACS Sec</span>
+      <span style="color:var(--text3);font-size:13px">→</span>
+      <span class="pill" style="background:var(--amber);border-color:var(--amber);color:#fff">EX467 (opcional)</span>
+      <span style="color:var(--text3);font-size:13px">→</span>
+      <span class="pill" style="background:#gold;border:1px solid var(--amber2);color:var(--amber2)">🏆 RHCA</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════
+     FASE 0
+═══════════════════════════════════════ -->
+<div class="panel" id="p-fase0">
+  <div class="phase-header">
+    <div class="phase-num" style="color:var(--blue)">F0</div>
+    <div class="phase-info">
+      <div class="phase-name">Fundações sólidas</div>
+      <div class="phase-meta">3–4 meses · ~10h/semana · Jun 2026 – Fev 2027</div>
+    </div>
+  </div>
+
+  <div class="sec">Linux — Red Hat oficial</div>
+  <div class="g2">
+    <div class="card c-blue"><div class="ct">RH124 — System Administration I v9.3</div><div class="cd">Linha de comandos, utilizadores, systemd, redes, armazenamento básico</div><div class="tags"><span class="tag t-kyn">Kyndryl</span><span class="tag t-cert">→ RHCSA</span></div></div>
+    <div class="card c-blue"><div class="ct">RH134 — System Administration II v9.3</div><div class="cd">LVM, SELinux, scripting, recuperação de sistema, containers Podman</div><div class="tags"><span class="tag t-kyn">Kyndryl</span><span class="tag t-cert">→ RHCSA</span></div></div>
+    <div class="card"><div class="ct">OverTheWire: Bandit</div><div class="cd">Wargame Linux gamificado — prática real em paralelo com RH124/134</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card"><div class="ct">The Linux Command Line (W. Shotts)</div><div class="cd">Referência para Bash formal — gratuito online. Leitura paralela ao RH124/134</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">RHCSA EX200</span><span style="color:var(--text3);font-size:11px;margin-left:6px">via Kyndryl · exame previsto Out–Nov 2026</span></div>
+
+  <div class="sec">Redes — Cisco</div>
+  <div class="g2">
+    <div class="card c-blue"><div class="ct">Cisco NetAcad — CCNAv7</div><div class="cd">Currículo oficial gratuito — preparação completa para o exame CCNA. Estudo gradual e paralelo.</div><div class="tags"><span class="tag t-kyn">Kyndryl</span><span class="tag t-free">NetAcad gratuito</span></div></div>
+    <div class="card"><div class="ct">Packet Tracer — simulações</div><div class="cd">Simulador oficial Cisco para laboratórios de redes</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">CCNA 200-301</span><span style="color:var(--text3);font-size:11px;margin-left:6px">via Kyndryl · exame previsto Jan–Fev 2027</span></div>
+
+  <div class="sec">Segurança — Fortinet NSE 1+2+3</div>
+  <div class="g3">
+    <div class="card"><div class="ct">NSE 1 — Info Security Awareness</div><div class="cd">Ameaças, vetores de ataque. ~1h</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">NSE 2 — Evolution of Cybersecurity</div><div class="cd">Firewalls, SIEM, endpoint, sandboxing. ~2h</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">NSE 3 — Fortinet Security Fabric</div><div class="cd">Zero Trust, SD-WAN, cloud security. ~3h</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">NSE 1+2+3</span><span style="color:var(--text3);font-size:11px;margin-left:6px">Gratuito via Kyndryl · Nov 2026–Jan 2027</span></div>
+
+  <div class="sec">Python, AWS Cloud Practitioner & GitHub</div>
+  <div class="g2">
+    <div class="card"><div class="ct">CS50P — Harvard (edX)</div><div class="cd">Melhor curso gratuito de Python, rigoroso e prático</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card"><div class="ct">Automate the Boring Stuff</div><div class="cd">Python para automação real — livro online gratuito</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card c-blue"><div class="ct">AWS Skill Builder — Cloud Practitioner</div><div class="cd">Percurso oficial com labs AWS incluídos</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-blue"><div class="ct">GitHub Foundations GH-900</div><div class="cd">Git, GitHub, colaboração, gestão de repositórios</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px">
+    <span class="pill kyn">AWS Cloud Practitioner</span>
+    <span class="pill kyn">GitHub Foundations GH-900</span>
+    <span style="color:var(--text3);font-size:11px;margin-left:6px">Nov 2026–Jan 2027</span>
+  </div>
+
+  <div class="sec">Planeamento Fase 0 — Calendário detalhado</div>
+  <div class="timeline">
+    <div class="tl-item active">
+      <div class="tl-date">Jun–Set 2026</div>
+      <div class="tl-title">Foco principal: Linux + Redes</div>
+      <div class="tl-desc">RH124 + RH134 em paralelo · Bash (The Linux Command Line) · OverTheWire Bandit · Estudo CCNA gradual (NetAcad + Packet Tracer)</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">01 Jul 2026</div>
+      <div class="tl-title">⚡ Submissão pedido voucher RHCSA</div>
+      <div class="tl-desc">Submeter no Workday Learning no início da janela FY27 Q3 (01 Jul–14 Ago 2026)</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Set–Out 2026</div>
+      <div class="tl-title">Aprovação + compra voucher RHCSA</div>
+      <div class="tl-desc">Após aprovação pelo Learning Spend Approver, compra do voucher e marcação do exame</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Out–Nov 2026</div>
+      <div class="tl-title">🏆 Exame RHCSA EX200</div>
+      <div class="tl-desc">Primeira certificação formal do percurso</div>
+      <div class="tl-certs"><span class="pill kyn">RHCSA EX200</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">01 Out 2026</div>
+      <div class="tl-title">⚡ Submissão pedido voucher CCNA</div>
+      <div class="tl-desc">Submeter no Workday Learning na janela FY27 Q4 (01 Out–14 Nov 2026)</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Nov 2026–Jan 2027</div>
+      <div class="tl-title">NSE 1+2+3 · Python · AWS CCP · GitHub Foundations</div>
+      <div class="tl-desc">Período entre RHCSA e CCNA — formações leves sem pressão de datas</div>
+      <div class="tl-certs"><span class="pill kyn">NSE 1+2+3</span><span class="pill">AWS CCP</span><span class="pill kyn">GitHub Foundations</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Jan–Fev 2027</div>
+      <div class="tl-title">🏆 Exame CCNA 200-301</div>
+      <div class="tl-desc">Segunda certificação major — finaliza a Fase 0</div>
+      <div class="tl-certs"><span class="pill kyn">CCNA 200-301</span></div>
+    </div>
+  </div>
+
+  <div class="port-box">
+    <div class="port-title">// PORTFÓLIO — FASE 0</div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Repositório GitHub criado no dia 1</strong> — README com visão do percurso, fases e progresso actualizado</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>/fase-0/linux/</strong> — scripts Bash reais, labs OverTheWire, notas RH124/134</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>/fase-0/redes/</strong> — topologias CCNA, labs Packet Tracer documentados</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>/diario/</strong> — registo semanal YYYY-WW-tema.md: o que estudaste, praticaste, o que falta</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FASE 1
+═══════════════════════════════════════ -->
+<div class="panel" id="p-fase1">
+  <div class="phase-header">
+    <div class="phase-num" style="color:var(--accent2)">F1</div>
+    <div class="phase-info">
+      <div class="phase-name">Containers, IaC & CI/CD</div>
+      <div class="phase-meta">4–5 meses · ~10h/semana · Mar–Jul 2027 (estimado)</div>
+    </div>
+  </div>
+
+  <div class="sec">Docker & Kubernetes</div>
+  <div class="g2">
+    <div class="card"><div class="ct">Docker Mastery — Bret Fisher (Udemy)</div><div class="cd">Curso de referência para Docker + Compose</div><div class="tags"><span class="tag t-paid">Próprio ~€15</span></div></div>
+    <div class="card"><div class="ct">Play with Docker</div><div class="cd">Ambiente Docker no browser sem setup</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card c-accent"><div class="ct">Mumshad Mannambeth — CKA (Udemy)</div><div class="cd">Curso CKA de referência absoluta no mercado</div><div class="tags"><span class="tag t-paid">Próprio ~€15</span></div></div>
+    <div class="card c-accent"><div class="ct">KodeKloud — CKA + Docker + Ansible</div><div class="cd">Labs interactivos para as 3 áreas numa subscrição</div><div class="tags"><span class="tag t-paid">Próprio ~$20/mês</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">CKA</span><span style="color:var(--text3);font-size:11px;margin-left:6px">Linux Foundation / Kyndryl</span></div>
+
+  <div class="sec">Terraform, Ansible & GitOps</div>
+  <div class="g2">
+    <div class="card c-accent"><div class="ct">HashiCorp Developer Tutorials</div><div class="cd">Percurso oficial gratuito — Terraform Associate 004</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card"><div class="ct">Zeal Vora — Terraform (Udemy)</div><div class="cd">Terraform aplicado a AWS, muito prático</div><div class="tags"><span class="tag t-paid">Próprio ~€15</span></div></div>
+    <div class="card c-accent"><div class="ct">Red Hat RH294 — Ansible Automation</div><div class="cd">Formação oficial Ansible enterprise via Kyndryl</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">Pro Git + ArgoCD Getting Started</div><div class="cd">Git avançado + GitOps com ArgoCD para K8s</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px">
+    <span class="pill kyn">Terraform Associate 004</span>
+    <span class="pill kyn">RHCE EX294</span>
+    <span class="pill kyn">AWS SysOps Associate</span>
+    <span class="pill kyn">GitHub Actions GH-200</span>
+  </div>
+
+  <div class="sec">Supply Chain Security</div>
+  <div class="g2">
+    <div class="card c-red"><div class="ct">Snyk Learn</div><div class="cd">Plataforma gratuita — vulnerabilidades em dependências, containers e IaC</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">Trivy + Grype</div><div class="cd">Scanning de containers e filesystems — integrar na pipeline CI/CD</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">OWASP Dependency-Track</div><div class="cd">Gestão de SBOM real num projecto do portfólio</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">GitHub Advanced Security / Dependabot</div><div class="cd">SCA automático em repositórios — activar no portfólio desde já</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  </div>
+
+  <div class="port-box">
+    <div class="port-title">// PORTFÓLIO — FASE 1</div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Infra AWS com Terraform</strong> — VPC, EC2, S3, IAM como código. README com arquitectura e decisões.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>K8s cluster local</strong> — kind ou minikube com deployments reais, serviços e ingress documentados.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Pipeline CI/CD com supply chain</strong> — GitHub Actions com Trivy, Dependabot e SBOM gerado automaticamente.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Playbook Ansible</strong> — hardening de servidor Linux aplicado e testado. Cada decisão documentada.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FASE 2
+═══════════════════════════════════════ -->
+<div class="panel" id="p-fase2">
+  <div class="phase-header">
+    <div class="phase-num" style="color:var(--green2)">F2</div>
+    <div class="phase-info">
+      <div class="phase-name">DevSecOps Core + Observabilidade</div>
+      <div class="phase-meta">5–6 meses · ~10h/semana · Ago 2027–Jan 2028 (estimado)</div>
+    </div>
+  </div>
+
+  <div class="sec">OpenShift & Ansible Automation Platform</div>
+  <div class="g2">
+    <div class="card c-green"><div class="ct">DO180 + DO280 → EX280 OpenShift Admin</div><div class="cd">OpenShift é K8s enterprise — exige CKA sólido como base. Red Hat Developer Sandbox incluído.</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-green"><div class="ct">DO374 + Event-Driven Ansible → EX374</div><div class="cd">Developing Automation com AAP — criar automação é mais relevante para DevSecOps que gerir a plataforma</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">EX280 OpenShift Admin</span><span class="pill kyn">EX374 Developing Automation AAP</span></div>
+
+  <div class="sec">Secrets Management — HashiCorp Vault</div>
+  <div class="card c-green">
+    <div class="ct">HashiCorp Vault Associate</div>
+    <div class="cd">Gestão de segredos, dynamic secrets, integração K8s, PKI e rotação automática de certificados. Complemento directo ao Terraform (Fase 1) — pouco visto no mercado, muito valorizado.</div>
+    <div class="tags"><span class="tag t-kyn">Kyndryl (via IBM)</span><span class="tag t-cert">Lacuna resolvida</span></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">Vault Associate</span></div>
+
+  <div class="sec">Segurança integrada — NSE 4, OWASP, DevSecOps</div>
+  <div class="g2">
+    <div class="card c-green"><div class="ct">NSE 4 — FortiGate Security</div><div class="cd">Firewall, NAT, VPN, IPS, web filtering — primeiro NSE com exame formal</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">OWASP Top 10 + ASVS</div><div class="cd">Top 10 vulnerabilidades web, Application Security Verification Standard</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card c-red"><div class="ct">OWASP API Security Top 10</div><div class="cd">APIs são o maior vector de ataque cloud-native. Complemento ao OWASP Top 10 clássico — custo zero, alto valor.</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Adicionado</span></div></div>
+    <div class="card"><div class="ct">DevSecOps Foundation (DevOps Institute)</div><div class="cd">Cultura, processos e práticas DevSecOps — certificação formal</div><div class="tags"><span class="tag t-paid">Próprio</span></div></div>
+    <div class="card"><div class="ct">TryHackMe — SOC Level 1</div><div class="cd">Detecção, análise de logs, triagem de alertas — labs práticos</div><div class="tags"><span class="tag t-paid">Próprio ~€14/mês</span></div></div>
+    <div class="card c-green"><div class="ct">GitHub Advanced Security</div><div class="cd">Code scanning, secret scanning, dependency review no ecossistema GitHub</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">NSE 4</span><span class="pill">DevSecOps Foundation</span><span class="pill kyn">GitHub Advanced Security</span></div>
+
+  <div class="sec">Threat Modeling</div>
+  <div class="g2">
+    <div class="card c-red"><div class="ct">Threat Modeling Manifesto + STRIDE</div><div class="cd">Metodologia STRIDE aplicada a arquitecturas reais — documentar no portfólio</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">OWASP Threat Dragon</div><div class="cd">Ferramenta open-source de threat modeling com diagramas</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+  </div>
+
+  <div class="sec">Observabilidade — Prometheus, Grafana, Dynatrace, Elastic</div>
+  <div class="g2">
+    <div class="card"><div class="ct">Prometheus Docs + Grafana University</div><div class="cd">Documentação oficial + cursos gratuitos Grafana com certificação</div><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+    <div class="card c-green"><div class="ct">Dynatrace University</div><div class="cd">Observabilidade enterprise — usado internamente na Kyndryl</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-green"><div class="ct">Elastic Free Training</div><div class="cd">Módulos self-paced gratuitos — fundações ELK stack</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-green"><div class="ct">AWS Skill Builder — Developer Associate</div><div class="cd">Percurso oficial Developer Associate via Kyndryl</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px">
+    <span class="pill kyn">Dynatrace Associate</span>
+    <span class="pill kyn">Elastic Obs. Engineer</span>
+    <span class="pill">Grafana Associate</span>
+    <span class="pill kyn">AWS Developer Associate</span>
+  </div>
+
+  <div class="port-box">
+    <div class="port-title">// PORTFÓLIO — FASE 2</div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Pipeline completa SAST+DAST+SCA</strong> — SonarQube, OWASP ZAP e Trivy integrados em GitHub Actions.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Threat model de aplicação real</strong> — diagrama STRIDE com OWASP Threat Dragon, publicado e comentado.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>OWASP API Security aplicado</strong> — análise prática de uma API real com os 10 riscos documentados.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Dashboard Grafana com alertas</strong> — métricas reais de aplicação com alertas Prometheus configurados.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Vault integrado com K8s</strong> — gestão de segredos dinâmicos numa pipeline real documentada.</div></div>
+  </div>
+
+  <div class="note green">A Fase 2 é o ponto de viragem prático — com esta fase concluída já tens argumentos reais para negociar internamente na Kyndryl ou candidatares-te a DevSecOps Engineer noutras empresas.</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FASE 3
+═══════════════════════════════════════ -->
+<div class="panel" id="p-fase3">
+  <div class="phase-header">
+    <div class="phase-num" style="color:var(--amber2)">F3</div>
+    <div class="phase-info">
+      <div class="phase-name">AWS Professional + Security Avançada</div>
+      <div class="phase-meta">5–6 meses · ~10h/semana · Fev–Jul 2028 (estimado)</div>
+    </div>
+  </div>
+
+  <div class="sec">AWS Professional + Security</div>
+  <div class="g2">
+    <div class="card c-amber"><div class="ct">AWS Skill Builder — DevOps Professional</div><div class="cd">Percurso oficial com labs e simuladores — o exame mais difícil do percurso. Requer preparação séria.</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">Stephane Maarek — DevOps Pro (Udemy)</div><div class="cd">Curso de referência para AWS DevOps Professional</div><div class="tags"><span class="tag t-paid">Próprio ~€15</span></div></div>
+    <div class="card c-amber"><div class="ct">AWS Skill Builder — Security Specialty</div><div class="cd">Percurso oficial Security Specialty via Kyndryl</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">Tutorials Dojo — simuladores</div><div class="cd">Simuladores de exames mais rigorosos do mercado</div><div class="tags"><span class="tag t-paid">Próprio ~$15</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">AWS DevOps Professional</span><span class="pill kyn">AWS Security Specialty</span></div>
+
+  <div class="sec">Kubernetes Security + OpenShift ACS</div>
+  <div class="g2">
+    <div class="card c-amber"><div class="ct">KodeKloud — CKS path</div><div class="cd">Melhor recurso CKS com labs práticos. Exige CKA sólido como pré-requisito.</div><div class="tags"><span class="tag t-paid">Próprio ~$20/mês</span></div></div>
+    <div class="card c-amber"><div class="ct">EX430 — OpenShift ACS Security</div><div class="cd">Certificação rara, poucos titulares. Complemento directo ao CKS em ambiente enterprise Red Hat.</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">CKS</span><span class="pill kyn">EX430 ACS Security</span></div>
+
+  <div class="sec">Palo Alto PCNSA + EX467 (opcional)</div>
+  <div class="g2">
+    <div class="card c-amber"><div class="ct">Palo Alto PCNSA</div><div class="cd">Network Security Associate — via Kyndryl. Complemento ao NSE 4 para segurança de rede enterprise.</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">AU467 → EX467 Managing AAP (opcional)</div><div class="cd">6º especialista Red Hat → RHCA. Opcional mas natural se quiseres completar a track Red Hat.</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">PCNSA</span><span class="pill" style="opacity:.7">EX467 (opcional → RHCA)</span></div>
+
+  <div class="sec">Incident Response & Compliance como Código</div>
+  <div class="g2">
+    <div class="card c-red"><div class="ct">BlueTeamLabs Online</div><div class="cd">Plataforma gratuita de IR e forensics — investigações reais simuladas</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">SANS Cyber Aces</div><div class="cd">Fundações de IR e análise forense — versão gratuita dos cursos SANS</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">AWS Config + OPA/Kyverno</div><div class="cd">Compliance contínuo como código — avaliação automática de conformidade em K8s e AWS</div><div class="tags"><span class="tag t-kyn">Kyndryl</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+    <div class="card c-red"><div class="ct">NIST CSF + CIS Controls</div><div class="cd">Frameworks de referência enterprise — mapeamento dos controlos ao que já sabes fazer</div><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-gap">Lacuna resolvida</span></div></div>
+  </div>
+
+  <div class="port-box">
+    <div class="port-title">// PORTFÓLIO — FASE 3</div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>IR Playbook documentado</strong> — resposta a incidente simulado com timeline, contenção, erradicação e lições aprendidas.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Compliance como código com AWS Config + OPA</strong> — políticas aplicadas e relatório de conformidade automático.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Landing Zone multi-conta AWS</strong> — IaC com Terraform, segurança e conformidade integradas.</div></div>
+    <div class="port-item"><div class="port-dot"></div><div class="port-text"><strong>Zero-trust K8s documentado</strong> — cluster com políticas de rede, RBAC mínimo e secrets Vault integrado.</div></div>
+  </div>
+
+  <div class="note amber">A Fase 3 é onde a maioria dos profissionais pára. Quem chega aqui com portfólio sólido tem um perfil genuinamente raro no mercado europeu.</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FASE 4
+═══════════════════════════════════════ -->
+<div class="panel" id="p-fase4">
+  <div class="phase-header">
+    <div class="phase-num" style="color:var(--green2)">F4</div>
+    <div class="phase-info">
+      <div class="phase-name">IA Aplicada a DevSecOps</div>
+      <div class="phase-meta">contínuo · sem fim · 2029+</div>
+    </div>
+  </div>
+
+  <div class="sec">AWS AI + Machine Learning</div>
+  <div class="g2">
+    <div class="card c-green"><div class="ct">AWS Skill Builder — AI Practitioner + ML Engineer</div><div class="cd">Percursos oficiais via Kyndryl — fundações e produção de modelos</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-green"><div class="ct">Nvidia DLI Courses</div><div class="cd">GPU computing e IA aplicada — parceiro Kyndryl</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card"><div class="ct">DeepLearning.AI — Andrew Ng (Coursera)</div><div class="cd">Fundações ML e LLMs — auditável gratuitamente</div><div class="tags"><span class="tag t-free">Auditável grátis</span></div></div>
+    <div class="card"><div class="ct">AWS Bedrock + SageMaker Labs</div><div class="cd">Hands-on com LLMs e MLOps na AWS — free tier</div><div class="tags"><span class="tag t-free">Free tier</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">AWS AI Practitioner</span><span class="pill kyn">AWS ML Engineer Associate</span></div>
+
+  <div class="sec">Multi-cloud & Data Engineering</div>
+  <div class="g2">
+    <div class="card c-green"><div class="ct">GCP Skills Boost — Pro DevOps Engineer</div><div class="cd">Multi-cloud via Kyndryl — complemento natural ao percurso AWS</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-green"><div class="ct">Databricks Data Engineer Associate</div><div class="cd">Data Engineering para MLOps — parceiro Kyndryl</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+    <div class="card c-green"><div class="ct">GitHub Copilot GH-300</div><div class="cd">IA como copiloto de código — integração no workflow diário</div><div class="tags"><span class="tag t-kyn">Kyndryl</span></div></div>
+  </div>
+  <div class="tl-certs" style="margin-top:10px"><span class="pill kyn">GCP Pro DevOps</span><span class="pill kyn">Databricks Data Eng.</span><span class="pill kyn">GitHub Copilot GH-300</span></div>
+
+  <div class="sec">Projectos IA aplicada a SecOps</div>
+  <div class="g3">
+    <div class="card c-green"><div class="ct">AI Security Copilot</div><div class="cd">Sistema que usa LLM para triar e resumir alertas de segurança automaticamente</div><div class="tags"><span class="tag t-port">Projecto portfólio</span></div></div>
+    <div class="card c-green"><div class="ct">Anomaly Detection em logs</div><div class="cd">Pipeline ML que detecta anomalias em logs de segurança automaticamente</div><div class="tags"><span class="tag t-port">Projecto portfólio</span></div></div>
+    <div class="card c-green"><div class="ct">AI Code Review em CI/CD</div><div class="cd">GitHub Actions que chama um modelo LLM para análise de segurança em PRs</div><div class="tags"><span class="tag t-port">Projecto portfólio</span></div></div>
+  </div>
+
+  <div class="note green">A Fase 4 não é um destino — é um estado permanente. A IA e o DevSecOps vão continuar a evoluir. Quem chega aqui com o hábito de aprender continuamente tem uma vantagem composta que cresce ano após ano.</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CUSTEAMENTO
+═══════════════════════════════════════ -->
+<div class="panel" id="p-custeamento">
+
+  <div class="sec">Resumo de custeamento</div>
+  <div class="metrics">
+    <div class="metric"><div class="mn" style="color:var(--kyn)">~80%</div><div class="ml">Certificações Kyndryl</div></div>
+    <div class="metric"><div class="mn" style="color:var(--amber2)">~€150</div><div class="ml">Udemy (estimado)</div></div>
+    <div class="metric"><div class="mn" style="color:var(--amber2)">~€60–80</div><div class="ml">KodeKloud 3–4 meses</div></div>
+    <div class="metric"><div class="mn" style="color:var(--green2)">15+</div><div class="ml">Recursos gratuitos</div></div>
+  </div>
+
+  <div class="sec">Fase 0 — Fundações</div>
+  <table class="cost-table">
+    <tr><th>Certificação / Formação</th><th>Custeamento</th><th>Detalhe</th></tr>
+    <tr><td>RHCSA EX200</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Costed Learning — submeter Jul 2026</td></tr>
+    <tr><td>CCNA 200-301</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Costed Learning — submeter Out 2026</td></tr>
+    <tr><td>NSE 1+2+3</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Gratuito via Fortinet/Kyndryl</td></tr>
+    <tr><td>AWS Cloud Practitioner</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>GitHub Foundations GH-900</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Confirmado via Kyndryl</td></tr>
+    <tr><td>CS50P Python (Harvard)</td><td><span class="badge badge-free">Gratuito</span></td><td>edX — auditável grátis</td></tr>
+    <tr><td>Automate the Boring Stuff</td><td><span class="badge badge-free">Gratuito</span></td><td>Livro online gratuito</td></tr>
+    <tr><td>The Linux Command Line</td><td><span class="badge badge-free">Gratuito</span></td><td>Livro online gratuito</td></tr>
+    <tr><td>OverTheWire: Bandit</td><td><span class="badge badge-free">Gratuito</span></td><td>Wargame online</td></tr>
+  </table>
+
+  <div class="sec">Fase 1 — Containers & IaC</div>
+  <table class="cost-table">
+    <tr><th>Certificação / Formação</th><th>Custeamento</th><th>Detalhe</th></tr>
+    <tr><td>CKA</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Linux Foundation</td></tr>
+    <tr><td>Terraform Associate 004</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>via IBM/HashiCorp</td></tr>
+    <tr><td>RHCE EX294</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Red Hat</td></tr>
+    <tr><td>AWS SysOps Associate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>GitHub Actions GH-200</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Confirmado via Kyndryl</td></tr>
+    <tr><td>Docker Mastery (Udemy)</td><td><span class="badge badge-paid">Próprio</span></td><td>~€15</td></tr>
+    <tr><td>Mumshad CKA (Udemy)</td><td><span class="badge badge-paid">Próprio</span></td><td>~€15</td></tr>
+    <tr><td>Zeal Vora Terraform (Udemy)</td><td><span class="badge badge-paid">Próprio</span></td><td>~€15</td></tr>
+    <tr><td>KodeKloud (subscrição)</td><td><span class="badge badge-paid">Próprio</span></td><td>~$20/mês</td></tr>
+    <tr><td>HashiCorp Tutorials</td><td><span class="badge badge-free">Gratuito</span></td><td>developer.hashicorp.com</td></tr>
+    <tr><td>Snyk Learn + Trivy + Dependabot</td><td><span class="badge badge-free">Gratuito</span></td><td>Supply chain security</td></tr>
+  </table>
+
+  <div class="sec">Fase 2 — DevSecOps Core</div>
+  <table class="cost-table">
+    <tr><th>Certificação / Formação</th><th>Custeamento</th><th>Detalhe</th></tr>
+    <tr><td>EX280 OpenShift Admin</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Red Hat</td></tr>
+    <tr><td>EX374 Developing Automation AAP</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Red Hat</td></tr>
+    <tr><td>Vault Associate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>via IBM/HashiCorp</td></tr>
+    <tr><td>AWS Developer Associate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>NSE 4 FortiGate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Fortinet</td></tr>
+    <tr><td>Dynatrace Associate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Dynatrace University</td></tr>
+    <tr><td>Elastic Observability Engineer</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Elastic</td></tr>
+    <tr><td>GitHub Advanced Security</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Confirmado via Kyndryl</td></tr>
+    <tr><td>DevSecOps Foundation</td><td><span class="badge badge-paid">Próprio</span></td><td>DevOps Institute</td></tr>
+    <tr><td>TryHackMe SOC Level 1</td><td><span class="badge badge-paid">Próprio</span></td><td>~€14/mês</td></tr>
+    <tr><td>Grafana Associate</td><td><span class="badge badge-free">Gratuito</span></td><td>Grafana University</td></tr>
+    <tr><td>OWASP Top 10 + ASVS + API Top 10</td><td><span class="badge badge-free">Gratuito</span></td><td>owasp.org</td></tr>
+    <tr><td>Threat Modeling (STRIDE + Threat Dragon)</td><td><span class="badge badge-free">Gratuito</span></td><td>threatmodelingmanifesto.org</td></tr>
+  </table>
+
+  <div class="sec">Fase 3 — Pro + Security Avançada</div>
+  <table class="cost-table">
+    <tr><th>Certificação / Formação</th><th>Custeamento</th><th>Detalhe</th></tr>
+    <tr><td>AWS DevOps Professional</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>AWS Security Specialty</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>CKS</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Linux Foundation</td></tr>
+    <tr><td>PCNSA</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Palo Alto / Kyndryl</td></tr>
+    <tr><td>EX430 OpenShift ACS Security</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Red Hat</td></tr>
+    <tr><td>EX467 Managing AAP (opcional)</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Red Hat — opcional RHCA</td></tr>
+    <tr><td>Stephane Maarek DevOps Pro (Udemy)</td><td><span class="badge badge-paid">Próprio</span></td><td>~€15</td></tr>
+    <tr><td>Tutorials Dojo simuladores</td><td><span class="badge badge-paid">Próprio</span></td><td>~$15</td></tr>
+    <tr><td>BlueTeamLabs + SANS Cyber Aces</td><td><span class="badge badge-free">Gratuito</span></td><td>IR e forensics</td></tr>
+    <tr><td>AWS Config + OPA/Kyverno + NIST CSF</td><td><span class="badge badge-free">Gratuito</span></td><td>Compliance como código</td></tr>
+  </table>
+
+  <div class="sec">Fase 4 — IA Aplicada</div>
+  <table class="cost-table">
+    <tr><th>Certificação / Formação</th><th>Custeamento</th><th>Detalhe</th></tr>
+    <tr><td>AWS AI Practitioner</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>AWS ML Engineer Associate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>AWS Skill Builder</td></tr>
+    <tr><td>GCP Pro DevOps Engineer</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Google / Kyndryl</td></tr>
+    <tr><td>Databricks Data Engineer Associate</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Databricks / Kyndryl</td></tr>
+    <tr><td>GitHub Copilot GH-300</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Confirmado via Kyndryl</td></tr>
+    <tr><td>Nvidia DLI Courses</td><td><span class="badge badge-kyn">Kyndryl</span></td><td>Nvidia / Kyndryl</td></tr>
+    <tr><td>DeepLearning.AI (Coursera)</td><td><span class="badge badge-free">Gratuito</span></td><td>Auditável grátis</td></tr>
+    <tr><td>AWS Bedrock + SageMaker Labs</td><td><span class="badge badge-free">Gratuito</span></td><td>Free tier AWS</td></tr>
+  </table>
+
+  <div class="note" style="margin-top:16px">O custo próprio real ao longo de 4–5 anos é muito reduzido — essencialmente alguns cursos Udemy pontuais (~€15 cada), 3–4 meses de KodeKloud (~$60–80) e a DevSecOps Foundation. Todo o resto é Kyndryl ou gratuito. As certificações GitHub (~$300–400 estimados inicialmente) passam a <strong>custo zero</strong> após confirmação via Kyndryl.</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CRONOLOGIA
+═══════════════════════════════════════ -->
+<div class="panel" id="p-cronologia">
+
+  <div class="sec">Cronologia realista — 10h/semana, ritmo sustentável</div>
+
+  <div class="timeline">
+
+    <div class="tl-item active">
+      <div class="tl-date">Jun–Set 2026 · Fase 0</div>
+      <div class="tl-title">Arranque — Linux + Redes + Portfólio</div>
+      <div class="tl-desc">RH124 + RH134 + Bash formal + OverTheWire Bandit. Estudo CCNA paralelo e gradual. Portfólio GitHub criado no dia 1.</div>
+      <div class="tl-certs"><span class="pill">Portfólio criado</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">01 Jul 2026</div>
+      <div class="tl-title">⚡ Submissão voucher RHCSA (Workday FY27 Q3)</div>
+      <div class="tl-desc">Janela: 01 Jul – 14 Ago 2026. Submeter logo no início.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Out–Nov 2026</div>
+      <div class="tl-title">🏆 RHCSA EX200</div>
+      <div class="tl-desc">Primeira certificação formal do percurso.</div>
+      <div class="tl-certs"><span class="pill kyn">RHCSA EX200</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">01 Out 2026</div>
+      <div class="tl-title">⚡ Submissão voucher CCNA (Workday FY27 Q4)</div>
+      <div class="tl-desc">Janela: 01 Out – 14 Nov 2026.</div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Nov 2026–Jan 2027</div>
+      <div class="tl-title">NSE 1+2+3 · Python · AWS CCP · GitHub Foundations</div>
+      <div class="tl-desc">Período entre RHCSA e CCNA — formações leves, sem pressão de datas.</div>
+      <div class="tl-certs"><span class="pill kyn">NSE 1+2+3</span><span class="pill kyn">AWS CCP</span><span class="pill kyn">GitHub Foundations</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Jan–Fev 2027</div>
+      <div class="tl-title">🏆 CCNA 200-301 · Fase 0 concluída</div>
+      <div class="tl-desc">Fase 0 completa — fundações sólidas em Linux, redes, segurança base, Python e cloud.</div>
+      <div class="tl-certs"><span class="pill kyn">CCNA 200-301</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Mar–Jul 2027 · Fase 1</div>
+      <div class="tl-title">Containers, IaC & CI/CD</div>
+      <div class="tl-desc">Docker → K8s (CKA) → Terraform → Ansible (RHCE) → GitOps → Supply Chain Security. ~4–5 meses.</div>
+      <div class="tl-certs"><span class="pill kyn">CKA</span><span class="pill kyn">Terraform Assoc.</span><span class="pill kyn">RHCE EX294</span><span class="pill kyn">AWS SysOps</span><span class="pill kyn">GitHub Actions</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Ago 2027–Jan 2028 · Fase 2</div>
+      <div class="tl-title">DevSecOps Core — ponto de viragem</div>
+      <div class="tl-desc">OpenShift, AAP, Vault, segurança integrada, observabilidade, threat modeling, OWASP API. ~5–6 meses. A partir daqui tens argumentos reais de mercado.</div>
+      <div class="tl-certs"><span class="pill kyn">EX280</span><span class="pill kyn">EX374</span><span class="pill kyn">Vault</span><span class="pill kyn">NSE 4</span><span class="pill kyn">Dynatrace</span><span class="pill kyn">Elastic</span><span class="pill kyn">AWS Dev Assoc.</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Fev–Jul 2028 · Fase 3</div>
+      <div class="tl-title">Perfil Sénior — topo do mercado</div>
+      <div class="tl-desc">AWS DevOps Pro + Security Specialty + CKS + EX430 + PCNSA. IR, compliance como código. ~5–6 meses.</div>
+      <div class="tl-certs"><span class="pill amber">AWS DevOps Pro</span><span class="pill amber">AWS Security</span><span class="pill amber">CKS</span><span class="pill amber">EX430</span><span class="pill amber">PCNSA</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2029+ · Fase 4</div>
+      <div class="tl-title">DevSecOps + AI Lead — contínuo</div>
+      <div class="tl-desc">AWS AI/ML, GCP, Databricks, GitHub Copilot, projectos IA aplicada a SecOps. Esta fase não tem fim — é onde a aprendizagem contínua se torna a tua vantagem permanente.</div>
+      <div class="tl-certs"><span class="pill green">AWS AI Practitioner</span><span class="pill green">AWS ML Engineer</span><span class="pill green">GCP Pro DevOps</span><span class="pill green">Databricks</span><span class="pill green">GitHub Copilot</span></div>
+    </div>
+
+  </div>
+
+  <div class="sec">Marcos cronológicos</div>
+  <div class="g4">
+    <div class="card"><div class="ct" style="color:var(--blue)">Out–Nov 2026</div><div class="cd">RHCSA — primeira cert formal</div></div>
+    <div class="card"><div class="ct" style="color:var(--accent2)">Jan 2027</div><div class="cd">Fase 0 completa</div></div>
+    <div class="card"><div class="ct" style="color:var(--green2)">Jan 2028</div><div class="cd">Fase 2 — primeiro emprego DevSecOps</div></div>
+    <div class="card"><div class="ct" style="color:var(--amber2)">Jul 2028</div><div class="cd">Fase 3 — perfil sénior de mercado</div></div>
+  </div>
+
+  <div class="note green" style="margin-top:16px">Podes mover-te mais depressa — se houver fases com mais disponibilidade (férias, menos turnos nocturnos), podes comprimir 2–3 meses facilmente sem sacrificar solidez. Consistência bate intensidade sempre.</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MERCADO
+═══════════════════════════════════════ -->
+<div class="panel" id="p-mercado">
+
+  <div class="sec">Posicionamento de mercado</div>
+  <div class="metrics">
+    <div class="metric"><div class="mn" style="color:var(--accent2)">Top 5%</div><div class="ml">Perfis DevSecOps Europa</div></div>
+    <div class="metric"><div class="mn" style="color:var(--green2)">Sénior</div><div class="ml">Nível atingido Fase 3</div></div>
+    <div class="metric"><div class="mn" style="color:var(--blue)">27</div><div class="ml">Certificações reconhecidas</div></div>
+    <div class="metric"><div class="mn" style="color:var(--amber2)">RHCA</div><div class="ml">Alcançável naturalmente</div></div>
+  </div>
+
+  <div class="sec">Salários de referência — Portugal e Europa (2025–2026)</div>
+  <div class="g2">
+    <div class="salary-card">
+      <div class="ct" style="margin-bottom:10px">Portugal — mercado local</div>
+      <div class="salary-row"><div class="salary-dot" style="background:#444"></div><div class="salary-text"><strong>Sysadmin L1 (hoje):</strong> €18k–€24k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--blue)"></div><div class="salary-text"><strong>DevOps Junior (Fase 0–1):</strong> €24k–€32k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--accent)"></div><div class="salary-text"><strong>DevSecOps Engineer (Fase 2):</strong> €32k–€45k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>Sénior DevSecOps (Fase 3):</strong> €45k–€65k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--amber)"></div><div class="salary-text"><strong>DevSecOps + AI Lead (Fase 4):</strong> €60k–€85k+/ano</div></div>
+    </div>
+    <div class="salary-card">
+      <div class="ct" style="margin-bottom:10px">Europa — remoto/híbrido (UK, NL, DE, IE)</div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--blue)"></div><div class="salary-text"><strong>DevOps Junior:</strong> €40k–€55k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--accent)"></div><div class="salary-text"><strong>DevSecOps Engineer:</strong> €55k–€80k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>Sénior DevSecOps:</strong> €80k–€110k/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--amber)"></div><div class="salary-text"><strong>DevSecOps + AI Lead:</strong> €100k–€140k+/ano</div></div>
+      <div class="salary-row"><div class="salary-dot" style="background:var(--green2)"></div><div class="salary-text"><strong>Consultor independente (Fase 3+):</strong> €800–€1.500/dia</div></div>
+    </div>
+  </div>
+
+  <div class="sec">O que o mercado vê no teu perfil</div>
+  <div class="g2">
+    <div class="card c-green">
+      <div class="ct">O que joga imediatamente a favor</div>
+      <div style="margin-top:8px">
+        <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>Kyndryl no CV</strong> — empresa tier-1 reconhecida globalmente. Abre portas em entrevistas enterprise.</div></div>
+        <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>Base de infra real</strong> — sysadmin real entende troubleshooting que DevSecOps de background apenas dev não consegue em produção.</div></div>
+        <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>RHCSA + CCNA + AWS</strong> — tríade de fundações que poucos candidatos têm simultaneamente.</div></div>
+        <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>Stack completa DevSecOps</strong> — K8s + Terraform + CI/CD + segurança integrada é exactamente o que as JDs de 2025–2026 pedem.</div></div>
+        <div class="salary-row"><div class="salary-dot" style="background:var(--green)"></div><div class="salary-text"><strong>RHCA alcançável</strong> — 6 especialistas Red Hat construídos naturalmente. Perfil muito raro no mercado.</div></div>
+      </div>
+    </div>
+    <div class="card c-amber">
+      <div class="ct">O que vai levantar questões em entrevista</div>
+      <div style="margin-top:8px">
+        <div class="salary-row"><div class="salary-dot" style="background:var(--amber)"></div><div class="salary-text"><strong>Estágio com dependência de IA</strong> — serás perguntado. Honestidade + portfólio próprio é a resposta.</div></div>
+        <div class="salary-row"><div class="salary-dot" style="background:var(--amber)"></div><div class="salary-text"><strong>L1 reativo vs. criador</strong> — o mercado distingue quem executa templates de quem os cria. Articula bem em entrevista.</div></div>
+        <div class="salary-row"><div class="salary-dot" style="background:var(--amber)"></div><div class="salary-text"><strong>Experiência em produção real</strong> — certificações provam estudo, não produção. Os labs e projectos Kyndryl são a resposta.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">Sectores que mais pagam e contratam</div>
+  <div class="g3">
+    <div class="card c-green"><div class="ct">Fintech & Banca</div><div class="cd">Compliance obrigatório, regulação pesada. 20–30% acima da média de mercado.</div><div class="tags"><span class="tag t-free">Top pagador</span></div></div>
+    <div class="card c-green"><div class="ct">Cloud Providers & ISVs</div><div class="cd">AWS, Google, Microsoft e parceiros — salários benchmark do mercado.</div><div class="tags"><span class="tag t-free">Top pagador</span></div></div>
+    <div class="card c-green"><div class="ct">Consultoras Enterprise</div><div class="cd">Kyndryl, Accenture, Deloitte Tech — progressão rápida e exposição a múltiplos clientes.</div><div class="tags"><span class="tag t-kyn">Contexto Kyndryl</span></div></div>
+    <div class="card"><div class="ct">Scale-ups Tech</div><div class="cd">Salário competitivo + equity. Ambiente cloud-native, menos burocracia.</div><div class="tags"><span class="tag t-cert">Oportunidade real</span></div></div>
+    <div class="card"><div class="ct">Sector Público / Defesa</div><div class="cd">Crescimento em cibersegurança. Salários mais baixos mas estabilidade elevada.</div><div class="tags"><span class="tag t-paid">Moderado</span></div></div>
+    <div class="card c-amber"><div class="ct">Negócio Próprio (DAT)</div><div class="cd">€800–€1.500/dia como consultor sénior. Requer Fase 3 completa e rede de contactos sólida.</div><div class="tags"><span class="tag t-paid">Fase 3+</span></div></div>
+  </div>
+
+  <div class="sec">Riscos honestos</div>
+  <div class="risk-card c-red">
+    <span class="risk-label risk-high">Crítico</span>
+    <div class="ct">A falácia das certificações</div>
+    <div class="cd" style="margin-top:4px">27 certificações sem projectos reais equivalem, na prática, a zero. O portfólio GitHub não é opcional — é tão crítico quanto as certificações. Cada cert devia ter pelo menos um artefacto prático associado no repositório.</div>
+  </div>
+  <div class="risk-card">
+    <span class="risk-label risk-high">Crítico</span>
+    <div class="ct">O ritmo de 10h/semana</div>
+    <div class="cd" style="margin-top:4px">Com turnos 24x7 há semanas em que 10h é irrealista. Manter um mínimo inegociável de 4–5h mesmo nas piores semanas. Consistência bate intensidade sempre.</div>
+  </div>
+  <div class="risk-card">
+    <span class="risk-label risk-med">Moderado</span>
+    <div class="ct">Burnout de certificações</div>
+    <div class="cd" style="margin-top:4px">27 certs ao longo de vários anos é uma maratona. Intercalar certificações com projectos práticos renova a motivação — o projecto é onde vês o que aprendeste a funcionar de verdade.</div>
+  </div>
+  <div class="risk-card">
+    <span class="risk-label risk-med">Moderado</span>
+    <div class="ct">Deprecação tecnológica</div>
+    <div class="cd" style="margin-top:4px">O mercado DevSecOps muda rápido. Dominar princípios, não apenas ferramentas — quem entende porquê se faz security scanning adapta-se a qualquer ferramenta nova.</div>
+  </div>
+  <div class="risk-card">
+    <span class="risk-label risk-low">Contextual</span>
+    <div class="ct">"Overqualified" em Portugal</div>
+    <div class="cd" style="margin-top:4px">Com Fase 3 completa, Portugal vai ter dificuldade em pagar o teu valor real. Não é um problema — é um sinal de que o teu mercado correcto é o europeu remoto ou a Kyndryl internacional.</div>
+  </div>
+
+  <div class="note green" style="margin-top:16px">Síntese: com este percurso completo, 5 anos de experiência real e portfólio documentado, estás a construir um dos perfis mais completos e mais escassos do mercado europeu de DevSecOps. O mercado vai reconhecê-lo — a questão não é se, é quando.</div>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const panels = {
+  'dashboard': document.getElementById('p-dashboard'),
+  'fase0': document.getElementById('p-fase0'),
+  'fase1': document.getElementById('p-fase1'),
+  'fase2': document.getElementById('p-fase2'),
+  'fase3': document.getElementById('p-fase3'),
+  'fase4': document.getElementById('p-fase4'),
+  'custeamento': document.getElementById('p-custeamento'),
+  'cronologia': document.getElementById('p-cronologia'),
+  'mercado': document.getElementById('p-mercado')
+};
+
+const tabColors = {
+  'dashboard': 'on',
+  'fase0': 'on-blue',
+  'fase1': 'on',
+  'fase2': 'on-green',
+  'fase3': 'on-amber',
+  'fase4': 'on-green',
+  'custeamento': 'on',
+  'cronologia': 'on',
+  'mercado': 'on-green'
+};
+
+function go(id) {
+  Object.values(panels).forEach(p => p.classList.remove('on'));
+  tabs.forEach(t => { t.classList.remove('on','on-green','on-blue','on-amber'); });
+  if (panels[id]) panels[id].classList.add('on');
+  const idx = Object.keys(panels).indexOf(id);
+  if (tabs[idx]) tabs[idx].classList.add(tabColors[id] || 'on');
+}
+</script>
+</body>
+</html>
