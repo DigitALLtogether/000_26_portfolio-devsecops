@@ -10,11 +10,12 @@ Não é um projecto de software com build/test — é um repositório documental
 
 | Pasta | Período | Foco |
 |-------|---------|------|
-| `fase-0-fundacoes/` | Jun 2026 – Fev 2027 | Linux, Redes, Python, AWS CCP, Segurança básica |
-| `fase-1-containers-iac/` | Mar – Jul 2027 | Docker, Kubernetes, Terraform, Ansible, Supply Chain |
-| `fase-2-devsecops-core/` | Ago 2027 – Jan 2028 | OpenShift, Vault, OWASP, Observabilidade |
-| `fase-3-pro-security/` | Fev – Jul 2028 | AWS Pro/Security, CKS, OpenShift ACS, Palo Alto |
+| `fase-0-claude/` | Contínuo | Claude Code, AI Operating System, automação com IA |
+| `fase-1-fundacoes/` | Jun 2026 – Fev 2027 | Linux, Redes, Python, AWS CCP, Segurança básica |
+| `fase-2-containers-iac/` | Mar – Jul 2027 | Docker, Kubernetes, Terraform, Ansible, Supply Chain |
+| `fase-3-devsecops-core/` | Ago 2027 – Jan 2028 | OpenShift, Vault, OWASP, Observabilidade |
 | `fase-4-ia-aplicada/` | 2029+ | AI/ML aplicado a DevSecOps, projectos de portfólio |
+| `fase-5-pro-security/` | Fev – Jul 2028 | AWS Pro/Security, CKS, OpenShift ACS, Palo Alto |
 | `diario/` | Contínuo | Diário de sessões de trabalho |
 
 ## Convenções de nomes e conteúdo
@@ -22,7 +23,7 @@ Não é um projecto de software com build/test — é um repositório documental
 **Diário de sessão** (`diario/`): ficheiros com formato `AAAA-MM-DD_tema.md`  
 Exemplo: `2026-06-01_inicio-percurso.md`
 
-**Dentro de cada módulo** (ex: `fase-0-fundacoes/linux-rhcsa/`):
+**Dentro de cada módulo** (ex: `fase-1-fundacoes/linux-rhcsa/`):
 - `notas/` — resumos e apontamentos teóricos
 - `labs/` — relatórios e ficheiros produzidos em ambiente prático
 - `scripts/` ou `manifests/` ou `playbooks/` ou `configs/` — artefactos executáveis, conforme o módulo

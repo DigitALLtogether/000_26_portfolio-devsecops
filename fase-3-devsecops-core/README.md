@@ -1,4 +1,4 @@
-# Fase 2 — DevSecOps Core + Observabilidade
+# Fase 3 — DevSecOps Core + Observabilidade
 
 **Duração estimada:** 5–6 meses | Ago 2027 – Jan 2028  
 **Ritmo:** ~10h/semana

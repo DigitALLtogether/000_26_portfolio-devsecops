@@ -1,4 +1,4 @@
-# Fase 3 — AWS Professional + Security Advanced
+# Fase 5 — AWS Professional + Security Advanced
 
 **Duração estimada:** 5–6 meses | Fev–Jul 2028  
 **Ritmo:** ~10h/semana

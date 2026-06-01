@@ -1,4 +1,4 @@
-# Fase 1 — Containers, IaC & CI/CD
+# Fase 2 — Containers, IaC & CI/CD
 
 **Duração estimada:** 4–5 meses | Mar–Jul 2027  
 **Ritmo:** ~10h/semana

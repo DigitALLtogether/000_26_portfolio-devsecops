@@ -1,0 +1,928 @@
+Title: I Turned Claude Opus 4.8 Into My Entire AI Operating System
+URL: https://www.youtube.com/watch?v=0WDkwMxj13s
+================================================================================
+
+[0:00] So Claude Opus 4.8 just dropped. So I
+[0:02] turned it into my own AI operating
+[0:04] system. It basically is my second brain.
+[0:06] It's my executive assistant. It's
+[0:07] everything. It runs all of my different
+[0:09] businesses. And I literally live inside
+[0:11] of this operating system. As you can see
+[0:12] over here on the right hand side, we
+[0:13] have a visualization of my actual second
+[0:16] brain and all of my skills and other
+[0:18] projects and everything that I'm working
+[0:20] on in my business being built out in
+[0:22] real time. So in this video, I'm going
+[0:23] to show you guys exactly how I have this
+[0:25] set up. I'm going to talk about my four
+[0:26] C's framework for building your own AI
+[0:28] operating system. context, connections,
+[0:30] capabilities, and cadence. I'm going to
+[0:32] go over the mindset of building one. I'm
+[0:33] going to go over how you make it better
+[0:34] and better and smarter over time, how
+[0:36] you're going to save tokens, and how
+[0:38] you're able to organize all of this so
+[0:39] that you can scale it up as your
+[0:41] business evolves. I'm also going to give
+[0:43] you guys this free GitHub repo, which
+[0:44] you can literally clone into your own
+[0:46] project and start to just feed in and
+[0:48] pump in context and skills and stuff
+[0:50] like that, so that you can feel more
+[0:52] confident about the way that you're
+[0:53] setting up your AI operating system
+[0:54] based on my two frameworks here, the
+[0:56] three M's, mindset, method, and machine.
+[0:58] and then the four C's like I just
+[1:00] mentioned for the actual architecture of
+[1:02] how you build this automation system. So
+[1:03] if that sounds good to you, let's just
+[1:04] get into it. By the end of this video,
+[1:05] you're going to know exactly how I
+[1:07] actually use this AI operating system
+[1:09] every single day. Okay, so this is my
+[1:11] Herk 2 project. If you guys have been
+[1:13] following my channel for a while, you've
+[1:14] probably heard me talk about this quite
+[1:15] a bit. It kind of started off as my
+[1:17] executive assistant and my second brain,
+[1:18] and now I just realized it's my
+[1:20] operating system. And the reason I say
+[1:22] that is because I try to work out of
+[1:24] this tab right here in VS Code more than
+[1:27] opening up Chrome or opening up other
+[1:29] desktop apps. I try to do everything
+[1:31] through here. And that's kind of like
+[1:32] the core default shift where I reach for
+[1:35] that first before I reach for anything
+[1:36] else. Because a lot of people might
+[1:38] think like, okay, what is an operating
+[1:39] system anyways? Well, think about it
+[1:40] like, you know, your Windows operating
+[1:42] system or your Mac operating system or,
+[1:43] you know, your iPhone, your iOS. It's
+[1:45] basically just the way that you're
+[1:46] interacting with the different systems
+[1:48] and the way that you're getting work
+[1:49] done. So, I'll show off some of my files
+[1:50] and folders in here a little bit, but
+[1:52] really what I want you to wrap your head
+[1:54] around is that first idea is that this
+[1:57] thing has all the context that I wanted
+[1:59] to have, which is basically everything.
+[2:01] It sees my meeting transcripts. It sees
+[2:03] all of my posts in school, all of my
+[2:04] YouTube video transcripts, all my
+[2:06] LinkedIn posts. It can read through my
+[2:07] Slack threads, my ClickUp threads, my
+[2:09] email. It knows everything about my
+[2:10] business to the point where I have to
+[2:12] come in here sometimes and ask it to
+[2:13] remind me of things because it can
+[2:15] recall it better than I can and faster
+[2:17] than I can. And the reason why I wanted
+[2:19] to test this out with Opus 4.8,
+[2:20] obviously it's a new model and you know
+[2:22] the benchmarks compared to Opus 4.7
+[2:24] looked better. But if you think about
+[2:26] the actual models, I liked Opus 4.6 more
+[2:29] than I liked Opus 4.7. It was just kind
+[2:32] of a feel thing. And so far with Opus
+[2:34] 4.8, it feels more like 4.6 to me, which
+[2:36] is great. If you think about some of the
+[2:39] things that Opus 4.7 wasn't doing great,
+[2:42] sometimes it had a bit of an attitude.
+[2:43] Honestly, it sounds funny, but it did.
+[2:45] Sometimes it would lie to you. And they
+[2:46] have a big improvement here. Opus 4.7
+[2:48] with honesty. Sometimes it was spending
+[2:50] too many tokens and it was being way too
+[2:52] sort of like out of bounds of what you
+[2:53] asked it to do. And that creativity was
+[2:55] nice, but sometimes obviously it wasn't.
+[2:57] So now that I've worked in Opus 4.8 into
+[3:00] my entire operating system, it has
+[3:02] already felt a little bit better. And by
+[3:03] the way, I did just do a whole deep dive
+[3:05] video on the launch of Opus 4.8, which I
+[3:07] will tag right up here if you want to
+[3:08] check that out. So anyways, let's just
+[3:10] start going through this stuff because
+[3:11] I've got a lot of things to talk about
+[3:12] and I want to get through it quick to
+[3:13] not waste your guys' time. So, the first
+[3:15] thing I want to talk about is the
+[3:17] default shift about an AI operating
+[3:19] system because it's not going to be
+[3:21] valuable to you and it's not going to
+[3:23] feel like you're getting the ROI on it
+[3:24] if you don't actually use it. So, this
+[3:27] is where I realized that I needed to use
+[3:30] an AIOS and where I really started to
+[3:31] build it up was when I was opening up,
+[3:34] you know, Cloud Chat. I was opening it
+[3:36] up on the web all the time. I had a
+[3:37] bunch of projects in there for helping
+[3:38] me write YouTube outlines or LinkedIn
+[3:40] posts or school posts or whatever it is.
+[3:42] And even though at that point I was a
+[3:44] frequent cloud code user, I realized
+[3:45] that I was only using cloud code
+[3:47] specifically to write code to do things
+[3:49] like building a Python script or
+[3:51] building some sort of automation. But
+[3:52] when you realize that cloud code has the
+[3:55] same underlying model opus 4.8 or
+[3:57] whatever it may be as cloud chat, then
+[3:59] it's like why would you ever use not
+[4:01] cloud code? Even if the use case is just
+[4:03] brainstorming or thinking or writing,
+[4:05] you know, content, nothing to do with
+[4:06] code, use claude code because you start
+[4:09] to build up all of that context, right?
+[4:11] And what I started to do is as I
+[4:13] transitioned everything over to cloud
+[4:15] code, my cloud skills, my cloud
+[4:16] projects, um other SAS tools that I
+[4:18] might have been paying for, I just
+[4:20] dwindled down my tech stack because
+[4:22] cloud code, my AIOS, just does
+[4:24] everything. And it's not only more
+[4:26] efficient, but it's also potentially
+[4:28] cheaper because you're not paying for
+[4:30] the tools and it just removes the amount
+[4:31] of context switching. And so this
+[4:33] default shift of thinking, I have X, Y,
+[4:36] and Z task to do today. let me try to do
+[4:38] X Y andZ task without opening up Chrome,
+[4:40] without opening up whatever other apps I
+[4:42] have. Let me just try to do everything
+[4:44] from my cloud code. And once you start
+[4:47] having that mindset shift, it's very,
+[4:49] very powerful because AI isn't king. Who
+[4:52] cares? Opus 4.8 benchmarks. Who cares?
+[4:53] GBD 5.5, I don't care. The AI isn't the
+[4:56] king. Everyone has access to the same AI
+[4:58] models. So if the AI is king, then
+[5:00] wouldn't everybody be king? Context is
+[5:02] king. And the more you use the thing,
+[5:04] the better the context gets. So if you
+[5:06] take the model which is the engine,
+[5:08] right, and you're feeding in your own
+[5:09] fuel, your own context, that's how you
+[5:11] get actual useful output. That's how you
+[5:13] get an AI assistant or executive
+[5:15] assistant or OS that doesn't feel like
+[5:17] you're getting generic stuff. You know,
+[5:19] if everyone has access to 4.8, right?
+[5:22] And 4.8 can write really good LinkedIn
+[5:23] posts, then wouldn't everyone's LinkedIn
+[5:25] posts be going viral? But that's not the
+[5:28] reality. So it's your context, right?
+[5:30] Context is king, not the AI model. And
+[5:33] you want to be thinking about your
+[5:34] tokens like money. You know, you want to
+[5:36] think about the fact that your that your
+[5:38] models, your AI models are stateless. So
+[5:40] if you open up a new session in cloud
+[5:41] code, what does it have? It it loads in
+[5:45] its, you know, global rules. It loads in
+[5:47] the cloud.mmd things like that. And then
+[5:48] from there, it's going to load in other
+[5:50] files or instructions or memories that
+[5:51] you've given it. Otherwise, it would be
+[5:54] a complete beginner every time. So if
+[5:56] you right now open up your cloud code
+[5:57] project and said, "Hey, based on what's
+[5:59] going on in our business, what should I
+[6:00] do next week?" If it gives you an answer
+[6:02] that's horrible, you probably need to
+[6:04] give it better context and better, you
+[6:06] know, hands to pull in the data from the
+[6:08] right sources. And if you get a really
+[6:09] good answer, then that's a good good
+[6:11] starting point. There's always room for
+[6:12] improvement, though. And so, one thing I
+[6:14] did want to call out real quick is if
+[6:16] this concept already seems a little bit
+[6:19] out there and you don't kind of, you
+[6:20] know, you feel a little bit lost
+[6:21] already, then maybe you want to upskill
+[6:23] first with cloud code at a basic level
+[6:25] before you try to build your whole AIOS.
+[6:27] And I think a good place to start would
+[6:29] be inside of my free school community.
+[6:30] link for this down in the description.
+[6:31] It's all completely free. I've got a
+[6:33] classroom section. And right here, I
+[6:34] have a full course about building your
+[6:36] own AIOS, the four C's that I talked
+[6:38] about. And in here, I basically walk
+[6:40] through everything. This is about a
+[6:42] three-hour course. So, if you want to
+[6:44] start here and then come back to a video
+[6:45] like this or watch this video first and
+[6:46] then jump into that course, that would
+[6:48] be a great way to do it. So, this
+[6:50] community is linked in the description
+[6:51] and it is completely free. It's also the
+[6:54] largest AI automation community on
+[6:55] school. So, hop in there. But anyways,
+[6:58] the whole idea of those four C's,
+[7:00] context, connections, capabilities, and
+[7:01] cadence is the way that you want to
+[7:03] mentally think about what do you need to
+[7:05] give your model access to in order to
+[7:07] actually be useful. So, let me hop into
+[7:09] the GitHub repo real quick to show you
+[7:10] what I mean by this. So, the oneliner of
+[7:13] context is that it knows your business,
+[7:15] right? You open up a fresh session and
+[7:17] you should be able to say, "What does
+[7:18] this business do and who works here?"
+[7:19] And it should be able to answer that.
+[7:21] Connections is what stuff can it
+[7:23] actually touch? What's on your calendar
+[7:24] tomorrow? What tasks do you have? What
+[7:26] messages did John send you yesterday?
+[7:28] What is the, you know, what's going on
+[7:30] in the general team chat right now? Can
+[7:32] it see that kind of stuff or are you
+[7:34] copy and pasting stuff into it in order
+[7:36] to give it that context? Then we have
+[7:37] capabilities, how you actually do work.
+[7:41] This is usually basically just like the
+[7:43] skills, the instruction files of, hey,
+[7:45] whenever Nate wants to write a LinkedIn
+[7:46] post, you should do it with in this
+[7:48] style. You know, use analogies like
+[7:50] this. Here is his writing guide. Here is
+[7:53] his framework for writing LinkedIn
+[7:54] posts. when it starts to be able to
+[7:56] understand how you work, that's when you
+[7:58] have true capabilities. And usually
+[8:00] those are skills. And then finally, we
+[8:02] have cadence. So turning all of this
+[8:04] stuff that we just talked about into
+[8:06] things that actually happen while your
+[8:07] laptop is closed or when you don't
+[8:09] explicitly ask for those things to
+[8:10] happen. And each of these layers can't
+[8:12] happen without the previous one. So
+[8:14] context, connections, capabilities, and
+[8:16] cadence. And like I said, that's what I
+[8:17] go over in that free course. So how do
+[8:20] you actually think about the
+[8:21] connections? Well, for example, in mine,
+[8:23] I'm connected to ClickUp, all of my
+[8:25] local files, obviously, my Google
+[8:26] Workspace, my QuickBooks, YouTube,
+[8:28] Fireflies, and so many more things. And
+[8:31] the way that I like to think about what
+[8:32] to add as connections, because I know at
+[8:34] the beginning, you might be like, "Okay,
+[8:36] I have so many things, right? Think
+[8:38] about on your week to week, where do you
+[8:40] go to look for things? And where do you
+[8:42] go to look for these specific seven
+[8:43] things as a really good starting point?
+[8:45] Where do you go to look for your revenue
+[8:47] figures? Where do you go to look at
+[8:48] customer data or customer communication?
+[8:50] Where do you go for your calendar, your
+[8:52] communication internally, your tasks,
+[8:54] your project management, your meetings,
+[8:56] and your knowledge? And obviously,
+[8:58] there's more than this in my business,
+[8:59] but this is just when you first sit down
+[9:01] and you think about your day-to-day or
+[9:02] your week to week and you do a little
+[9:04] audit on yourself. What desktop apps do
+[9:06] you have? What software do you pay for?
+[9:08] What are things that you actually are
+[9:10] constantly like clicking on? You know,
+[9:12] what what are your bookmarks on your
+[9:13] Chrome? What are things that you're
+[9:15] using so often that it would be helpful
+[9:16] if your AI operating system had access
+[9:19] to those things? And that's just like I
+[9:20] said a good place to start. Write them
+[9:22] down and then just start one by one
+[9:23] connecting to like school's API, Stripe
+[9:26] API, QuickBooks API. Just start
+[9:28] connecting to the different API
+[9:29] endpoints or MCP servers one at a time
+[9:31] and you'll start to build up a really
+[9:33] good bank of connections. And also this
+[9:36] GitHub repo will walk you guys through a
+[9:37] lot of this. It's it has like a whole
+[9:39] onboarding skills. So it'll interview
+[9:40] you. It'll have you connect things.
+[9:42] It'll audit you. It's going to be really
+[9:44] helpful if you're starting from zero
+[9:45] right now. Now, another cool thing that
+[9:47] you guys can do is you can run /insights
+[9:49] right here and it says that it's going
+[9:51] to generate a report analyzing your
+[9:53] cloud code local sessions. So, that will
+[9:55] give you an HTML file and then when you
+[9:57] open that up in a browser, it will look
+[9:59] like this. So, it'll show you the date
+[10:01] range that it looked through. It will do
+[10:02] 30 days, but the only reason mine has 12
+[10:04] is because I recently got a new PC, so
+[10:07] there's only 12ish days of local data.
+[10:10] But, it will show you at a glance what's
+[10:11] working, what's hindering you, quick
+[10:14] wins to try. So here are you know some
+[10:16] skills that you can do ambitious
+[10:17] workflows and it'll show you different
+[10:20] things that are going on right so what
+[10:22] you work on how you use cloud code
+[10:23] impressive things you know where things
+[10:25] go wrong features to try new usage
+[10:27] patterns so looking through this stuff
+[10:29] is going to be hopefully very helpful
+[10:31] for you to figure out how you can
+[10:32] actually streamline the way that you use
+[10:35] your AIOS by implementing this feedback
+[10:37] but not only implementing it once but
+[10:39] checking this every couple weeks
+[10:40] checking this every month and seeing how
+[10:43] the way that you're using it has changed
+[10:45] and seeing if your sessions are
+[10:46] increasing and seeing if your, you know,
+[10:48] different recommendations are changing
+[10:50] and things like that to make sure that
+[10:52] you're always getting better the way
+[10:53] that you're using your AIOS. And of
+[10:55] course, you can have Cloud Code
+[10:57] brainstorm with you on the report
+[10:59] findings and just keep iterating. So,
+[11:01] that's just a pretty cool feature that I
+[11:02] wanted to tell you guys about and it's
+[11:03] definitely something to utilize,
+[11:04] especially as you're getting your AIOS
+[11:06] up and running. Anyways, I wanted to now
+[11:08] talk about how you organize this stuff
+[11:10] because I think this is the most
+[11:11] requested topic that I get inside of my
+[11:15] communities and comments is how do I
+[11:16] organize my AIOS? So, let me start off
+[11:20] by just saying this.
+[11:22] Don't stress it because there's not a
+[11:25] right way. There's not a one and only
+[11:27] best way to run your AI operating
+[11:29] system. You don't have to do it exactly
+[11:30] the way that Nate does it or the way
+[11:32] that your other, you know, creators that
+[11:34] you watch do it or your friends do it.
+[11:36] It all is just folders and files. And
+[11:39] when you start to actually realize that,
+[11:41] it makes things a lot simpler, right?
+[11:43] Because when you realize everything's
+[11:44] files and folders, the first thing it
+[11:46] does in my mind is it makes me realize,
+[11:47] okay, cool. I could open up these files
+[11:49] and folders in codeex or openclaw. I'm
+[11:52] not locked into cloud code. I'm tool
+[11:54] agnostic here, which is great. You might
+[11:56] see over here, I've got a agents folder.
+[11:58] I've got a cloud. I've got a codeex. So,
+[12:00] I can use this entire operating system
+[12:02] with multiple different types of coding
+[12:04] agents, which is beautiful. And the
+[12:06] other thing is it's a bunch of local
+[12:07] files and folders, which means AI can
+[12:10] look through everything. AI can crawl
+[12:12] through it. AI can reorganize it. AI can
+[12:14] search through it. So the point I'm
+[12:15] trying to make here is don't stress it
+[12:17] too much. If it gives you guys more
+[12:19] comfort, think about this. I probably
+[12:22] change my cloud.MD file or my agents.mmd
+[12:25] file almost every day. I'm changing that
+[12:28] thing so often because I live in here so
+[12:30] much. So anytime I think oh that would
+[12:32] be good to know or oh let's you know
+[12:34] make this more concise I'm updating that
+[12:36] callmd defile and I'm also moving around
+[12:39] my projects and my files and my folders
+[12:41] definitely on a weekly basis as well
+[12:43] because every quarter I have new
+[12:45] priorities every week there's something
+[12:46] new that comes up um I'm making new
+[12:48] files I'm maybe working on new projects
+[12:50] I'm scrapping old projects so things
+[12:52] move around a lot so the reason why I'm
+[12:54] spending so much time there is just so
+[12:55] so you feel more comfortable you know
+[12:57] don't stress yourself out I'm doing this
+[12:58] the wrong way I I truly don't think
+[13:00] there's a single wrong way. The only
+[13:02] time where you run into issues is if
+[13:04] there's so much context and it's so
+[13:05] unorganized that you can't find it. You
+[13:07] can't find things manually and that your
+[13:09] AI can't find things because this is
+[13:10] laid out in a way where to me it's very
+[13:12] clear. I have decisions. I have audits.
+[13:14] I have my archives. I have other worlds
+[13:16] which literally means these are entire
+[13:19] full cloud code projects that I can open
+[13:21] up in their own and I use them on my
+[13:23] own. So my scheduled automations, my
+[13:24] YouTube OS, I've got the book that I'm
+[13:26] working on. All of this stuff is other
+[13:28] worlds. And if I wanted to add more
+[13:30] cloud code projects in my other worlds
+[13:31] folder, I could because it's nice that
+[13:34] my main OS can look through this kind of
+[13:36] stuff. But here's the thing. Even if I
+[13:38] have other cloud code projects, which
+[13:39] trust me, I have way more than just
+[13:40] these four that live on my desktop or
+[13:42] live in my documents, cloud code can
+[13:45] still get there and it still knows they
+[13:47] live there because I I have like
+[13:48] documentation on okay, you know, the
+[13:50] cloud code GitHub repo that owns, you
+[13:52] know, like my website that lives at
+[13:55] desktop blah blah blah. And so Claude
+[13:57] Code can go find it if it ever needs it.
+[13:59] You can see how many products I've got
+[14:01] in here, right? Like for example, this
+[14:02] YouTube video. If I can just scroll down
+[14:04] here and find it. Oh yeah, right here in
+[14:06] my YouTube videos folder. This one was
+[14:08] called Opus 4.8 operating system. And
+[14:11] all the diagrams you guys just saw right
+[14:13] over here, right in Excal. All of these
+[14:15] diagrams and the whole outline of this
+[14:17] video was built for me in here by my
+[14:19] Cloud Code OS. my outline, my visual
+[14:21] plan, all of this, all these other
+[14:22] YouTube videos, all these ex articles,
+[14:24] everything that I'm doing, I'm doing
+[14:26] through here. And that's where I've got
+[14:28] all the stuff set up because think about
+[14:30] it now.
+[14:32] This thing has access to basically
+[14:34] everything I've done. So, it can update
+[14:35] my skills later. It can make its memory
+[14:37] files better and better. And yeah, I
+[14:40] think you'll find just how helpful it is
+[14:43] if you're constantly context switching
+[14:44] and doing a lot of stuff throughout your
+[14:46] day, which I'm sure all of you guys are.
+[14:47] having just like one source of truth
+[14:49] that has everything and you kind of
+[14:51] eliminate that scavenger hunt of like,
+[14:52] oh, where did I leave that file? Who did
+[14:55] I send that to? Did I do that on chat
+[14:57] GBT or Claude code or Claude? Like,
+[15:00] where did I do all this stuff? No, just
+[15:02] do it all here and give your system
+[15:04] access to touch everything because then
+[15:07] it can find things, right? Like I
+[15:08] remember someone on my team sent me
+[15:09] something the other day and I couldn't
+[15:11] remember if that was in Slack or
+[15:12] ClickUp. So, I just came in here and
+[15:13] said, "Can you help me find this doc
+[15:15] from this person?" and it just found it
+[15:16] in like 10 seconds. So those types of
+[15:19] use cases where you're not doing the
+[15:21] scavenger hunt trying to find something,
+[15:22] it's huge. Now, when I start to bring
+[15:24] that concept up, there's probably alarm
+[15:27] bells that go off in a lot of your guys'
+[15:29] heads, which I think if that happened to
+[15:30] you, I'm glad. Like that's a good thing
+[15:32] that happened because the more autonomy
+[15:34] you have, the more reach you have as you
+[15:36] move your way up sort of like the AI
+[15:38] systems pyramid that I talk about, you
+[15:39] know, like workflows, AI workflows, AI
+[15:41] agents, teams of agents. As you move up,
+[15:44] typically risk goes up as well as cost.
+[15:47] So that's why I like to talk about your
+[15:50] keys, right? Like your permission layer
+[15:52] around the AI agents. thinking about if
+[15:56] you're building an AI operating system
+[15:57] that has so much data and it has so many
+[15:59] different API keys or MCP servers, you
+[16:02] have to be careful. Um, there was an
+[16:04] example which you can see this is kind
+[16:06] of built around on our team. Like for
+[16:08] real, an AI agent basically sent out
+[16:12] three promotional emails that weren't
+[16:13] supposed to go out to over 150,000
+[16:16] inboxes. Like it was bad. We had to
+[16:18] apologize. We had to, you know, take
+[16:19] down the page and whatever. But why did
+[16:22] that happen? Because it's not like our
+[16:24] team said, "Hey, go send out these three
+[16:27] emails." What happened was the agent
+[16:29] proactively picked up a to-do list, a
+[16:31] task, and and it interpreted it as,
+[16:33] "Okay, I need to make these emails and
+[16:34] send them off." And it just did it. And
+[16:37] basically the mindset shift there is you
+[16:39] have to think about what can your system
+[16:42] actually touch. You know, um you have to
+[16:45] assume that if your agent has access to
+[16:47] read something or to do something, it
+[16:49] will do it. And like that's not always
+[16:51] the case, right? Most of the time it
+[16:52] won't, but if you assume that it will,
+[16:55] you change the way that you give your
+[16:56] agent endpoints. You change the way that
+[16:58] you give your agent MCP servers, you you
+[17:01] start to have things that are scoped.
+[17:02] You start to just be more careful about
+[17:04] it. And obviously that's the right way
+[17:05] to do it. And I also want to clarify
+[17:07] like I was not mad at, you know, this
+[17:09] person that when this accident happened.
+[17:11] Like it happened. It was a really good
+[17:13] learning experience for everyone on the
+[17:14] team, myself included, and you know, we
+[17:17] grow from it. But anyways, as you start
+[17:19] to just give your agent more and more
+[17:22] connections and more capabilities, you
+[17:24] definitely want to be thinking about
+[17:25] that because it's exciting. It's
+[17:27] exciting to connect to a bunch of
+[17:28] different data sources. It's exciting to
+[17:30] build all these new skills, but you also
+[17:32] have to bring yourself down to earth a
+[17:33] little bit and think, okay, what is the
+[17:34] worst case that could happen here? And
+[17:36] the thing is, instructions are not the
+[17:38] same as capabilities. If you think about
+[17:40] all the keys that your agent has on the
+[17:42] key ring, there's a difference between
+[17:44] saying, hey, don't ever use that key,
+[17:46] and saying, "Okay, give me that key."
+[17:47] like you don't have you don't get to put
+[17:49] this key on your key ring. It's a huge
+[17:51] difference. So, as much as you could say
+[17:52] never send emails, if there's a send
+[17:54] email key or send email tool inside of
+[17:57] that agent harness, then it could do it,
+[17:59] right? Like it it it actually physically
+[18:02] could. And so that's why I like to think
+[18:03] about it as the bike method. When you're
+[18:05] building skills and when you're building
+[18:06] automations, think about it like you're
+[18:07] teaching a kid to ride a bike.
+[18:09] Basically, what I mean by that is you
+[18:12] don't just hand the kid a bike, put a
+[18:14] helmet on them, and say, "Okay, kid, go
+[18:16] ride." You typically will walk with
+[18:18] them. You'll hold the handle. You'll put
+[18:20] your hand on their back. You'll walk
+[18:21] with them. You'll feel that they're
+[18:23] adjusting too much to the left or
+[18:24] leaning too much left and you'll adjust
+[18:25] them back to the middle. You will help
+[18:27] them out throughout the way. And every
+[18:29] single time you use that skill or every
+[18:31] single time you you and the kid like go
+[18:33] up and down the driveway, it gets
+[18:35] better. Like slowly it gets better and
+[18:37] better. And slowly there's more trust.
+[18:38] And slowly you can take off your hands.
+[18:40] Slowly you take off the training wheels.
+[18:42] Slowly you let the kid just ride down
+[18:44] the street. And all you do is watch. You
+[18:46] know, you probably don't immediately go
+[18:48] inside and take a nap while the kid's
+[18:49] riding a bike, but you still watch and
+[18:51] you make sure that things are feeling
+[18:53] good and it's earned its spot.
+[18:55] Basically, like it's earned its next
+[18:57] phase until the point where you get to
+[19:00] autonomy. And I think yes, the barrier
+[19:02] to entry is getting lower to build
+[19:04] systems. Yes, it's easier to evaluate
+[19:06] and easier to push something into
+[19:07] production same day. whereas um you know
+[19:11] earlier on without all these AI models
+[19:13] it was harder to build automations so
+[19:15] quickly and so accurately right away.
+[19:17] But making it easier shouldn't be giving
+[19:20] you that false sense of security. It
+[19:22] shouldn't be um actually putting too
+[19:25] much trust in your head because too much
+[19:27] trust is bad if you are putting
+[19:28] something out there too quick and it's
+[19:30] not ready. So that's another thing to
+[19:32] think about phase trust in the bike
+[19:34] method. Every time you run a skill it
+[19:36] gets better. It's not a waste of time.
+[19:38] So you can see here in myclude if I open
+[19:40] up this folder I've got you know agent
+[19:42] memory we've got agents we've got some
+[19:44] plans some rules and here's my skills
+[19:46] where you can see I've got quite a bit
+[19:48] in here right there's a lot of different
+[19:49] skills that I've built out in here and
+[19:52] these have built obviously over time
+[19:53] these get changed all the time some of
+[19:55] them I've even moved like globally
+[19:57] instead because you can have skills that
+[19:59] live only in a herk 2 project in this
+[20:00] local project or some of the skills I've
+[20:02] made I moved globally so that if I'm
+[20:04] ever working in any other directory I
+[20:06] can still use those skills but anyways
+[20:08] lots of skills here. I'm obviously not
+[20:09] going to dive into these because like I
+[20:10] said, there's just a lot. But let me
+[20:12] talk about now how do you get to a place
+[20:14] where you're building skills. So I think
+[20:16] that you should first of all think about
+[20:17] it like this. Think about your day.
+[20:19] Think about your week. What are things
+[20:20] that you do on a cadence, right? What
+[20:21] are things that you do every Monday,
+[20:22] every single day, multiple times a day,
+[20:24] whatever it is. What are things that you
+[20:26] know you do often? And then build it
+[20:28] forward. So say, "Hey, Cloud Code, I
+[20:30] want you to use the skill creator. I
+[20:31] want you to help me run this skill.
+[20:33] Here's the end goal. Here are typically
+[20:35] the different tools and the different
+[20:36] things I think about. let's try building
+[20:38] it out. And it's going to walk you
+[20:39] through. You correct it. You get an
+[20:41] output. You give feedback, right? And
+[20:43] you just kind of take that iteration
+[20:44] loop of building the skill. And
+[20:46] sometimes your skills might take like 50
+[20:47] tries until you get to a place where you
+[20:49] like it. And then even then, every time
+[20:50] you use the skill, you're going to
+[20:51] evolve it, right? Like every single time
+[20:53] I use my LinkedIn writing skill, I give
+[20:55] it feedback. So every single time I
+[20:57] write a LinkedIn post, I say, "Hey, this
+[20:59] was good, but this wasn't as good." So
+[21:01] change that in the skill so that next
+[21:03] time that doesn't happen. And I just
+[21:04] keep evolving it. Now the other way is
+[21:06] when you reverse engineer a skill which
+[21:08] honestly is what I do more often. I do
+[21:10] something with cloud code from end to
+[21:12] end and then I think to myself, okay,
+[21:14] that would be a good skill to have just
+[21:15] in case I do that again or because I
+[21:17] know I'm going to do it again. So I
+[21:18] build the thing end to end and then once
+[21:20] I have that finished output, I reverse
+[21:21] engineer and say, hey, this is a really
+[21:23] good output. Look back at our
+[21:25] conversation. What did we do to get
+[21:26] there? What did you think about? What
+[21:28] tools did you need? What questions did
+[21:30] you ask me? and build a skill around it
+[21:32] that we want to have that skill give us
+[21:35] that output. Obviously, it's not going
+[21:36] to be perfect once again, but that's the
+[21:38] way that I typically build them is I
+[21:39] reverse engineer them. So, I was
+[21:40] watching this section of the video back
+[21:42] and I realized that this isn't
+[21:44] completely true. Like, for the most
+[21:45] part, yes, this is exactly how I do it,
+[21:47] but I don't want to plant in your head
+[21:49] the idea that a skill is only like a
+[21:52] workflow or something that you do that's
+[21:54] like a big process like an SOP, right?
+[21:56] Like skills can also be just as simple
+[21:59] as have you ever typed in this prompt
+[22:01] before and do you not want to type that
+[22:03] prompt in again? Then build a skill
+[22:05] around it. And I think a really really
+[22:06] good example to show you guys is my
+[22:08] session handoff skill. So you know this
+[22:10] is a you know a cloud code session. I've
+[22:12] been chatting with cloud code for a
+[22:14] while. I ran a goal and now I want to be
+[22:17] able to maybe clear the context or I
+[22:20] want to move this over from cloud code
+[22:21] to codeex or open up a new terminal
+[22:23] whatever it is. And so I built this
+[22:24] skill right here called session handoff.
+[22:26] And I installed this one globally for
+[22:28] cloud code for me. So when I run this,
+[22:31] it basically is giving me a full
+[22:33] breakdown of, hey, here's what we did.
+[22:34] Here's the files that were created. Here
+[22:36] are open decisions. Here's what's next.
+[22:38] And that's really helpful for me because
+[22:39] it's not a super complex skill, right?
+[22:41] It's just a prompt. But I was typing
+[22:43] that myself every time. I'd say, hey,
+[22:45] you know, I'm going to clear my context.
+[22:46] Can you give me a summary? Can you tell
+[22:48] me what decisions are left to do? Can
+[22:49] you tell me where we need to pick off or
+[22:51] pick up? And I was just repeating that
+[22:53] same prompt so many times a day. And so
+[22:56] I realized, okay, why don't I just take
+[22:57] that prompt and just put it as a skill,
+[22:59] put it as a slash command. And now I
+[23:01] have this. I can go ahead and do a /copy
+[23:04] slashcle, paste it in. And then I'm
+[23:06] basically right back where I was with
+[23:08] completely fresh context. So I will also
+[23:10] leave this exact skill in my free school
+[23:13] community if you guys want to grab that
+[23:15] as well. Or you can just build your own.
+[23:16] Right. As you can see, it gives me um
+[23:18] pick up here, deferred open questions,
+[23:20] where it started, decisions locked, key
+[23:22] files, all of that. Super super helpful.
+[23:24] So, just wanted to throw that in there
+[23:26] as well. And you really want to be
+[23:28] thinking about your AI operating system
+[23:30] as a mentor rather than just like, you
+[23:33] know, a chatbot or an automation. So,
+[23:36] what I mean by that is when you start to
+[23:39] think about like, I wonder if that's
+[23:40] possible or h I don't know how AI could
+[23:42] do this. It's it's tough because when
+[23:45] you have that idea or that feeling of
+[23:47] doubt, your brain wants to default to
+[23:50] what's comfortable, which is what you
+[23:51] already know how to do. Which means,
+[23:53] let's say you want to pull some reports
+[23:54] and do a data analysis for the quarter.
+[23:56] If you've done that for every quarter me
+[23:58] manually by going into the software and
+[24:00] pulling the report and then doing your
+[24:02] formulas, your brain's going to want to
+[24:03] do that because you know exactly how it
+[24:05] works. But if you think of your AI
+[24:07] operating system as a mentor and you
+[24:09] say, "Hey, here's a process that I do,
+[24:11] you know, at the end of every month.
+[24:13] here's the tool that I need to use. How
+[24:15] is this possible? Like how can I
+[24:17] actually do this? And it'll walk you
+[24:19] through the options and it will start to
+[24:21] give you ideas and it will test things
+[24:23] out with you. And then you get to a
+[24:25] point where you have that done. And it
+[24:27] is tough because with AI, with building
+[24:29] skills, with anything that you do new in
+[24:31] your business or in your day-to-day
+[24:32] productivity, there is basically a
+[24:35] short-term cost that you have to bear,
+[24:37] right? like the idea of learning
+[24:39] something and building out a new skill
+[24:41] that one day it might be slower than
+[24:44] your manual process, but in the long run
+[24:46] having an automation around something is
+[24:48] obviously way way quicker. So you kind
+[24:50] of have like a 20% dip and it's
+[24:52] basically is that change is the dip
+[24:55] worth it for the long-term climb and the
+[24:57] long-term upside that you will have
+[24:58] rather than just remaining constant how
+[25:00] you would have if you kept that process
+[25:02] the same and didn't change anything. But
+[25:03] of course, your judgment still needs to
+[25:05] stay there. You still need to be the one
+[25:07] who's reading everything. You still need
+[25:08] to be the one who is putting your own
+[25:10] spin on it. You can't just outsource
+[25:12] everything. I think a really good quote
+[25:13] that I've brought up multiple times is
+[25:15] that you can outsource your thinking,
+[25:16] but you cannot outsource your
+[25:18] understanding. Really powerful quote.
+[25:20] And then I know I showed you guys this
+[25:21] earlier, right? Like the actual um
+[25:23] Obsidian thing where you can see the
+[25:26] visualization of all my files. This is
+[25:29] cool, right? And to be honest, for my
+[25:31] Herk 2 project, I don't really use this
+[25:32] too much. I think that when it comes to
+[25:35] visualizing your actual operating
+[25:36] system, it's basically just personal
+[25:38] preference, right? Like you could open
+[25:40] up the terminal and run cloud code from
+[25:41] Obsidian and you can, you know, do that
+[25:44] if you want. I've got a few Obsidian
+[25:45] projects where I have all my YouTube
+[25:46] transcripts in there and I've got a
+[25:48] bunch of tools and I've got different
+[25:49] breakdowns and sometimes it is really
+[25:50] nice to see that visually, but like for
+[25:52] my Herku project, I don't really know
+[25:53] what I'm looking at here and I don't
+[25:55] really care. And the thing about my OS
+[25:57] is it's how I work and it's not very
+[26:00] visual. And so I know a lot of people
+[26:02] might think, oh well to have an AI
+[26:03] operating system, you need like a fancy
+[26:05] looking dashboard. You need to see all
+[26:06] your agents. You need to see all this
+[26:07] uptime. You need to see these things. I
+[26:10] don't. I don't care. If you do, then
+[26:12] that's perfectly fine. There's nothing
+[26:13] wrong with that. But I don't need a
+[26:15] dashboard for my operating system,
+[26:17] right? Like cuz I come in here and I
+[26:19] talk to different agents. I have
+[26:21] different tabs. That's how I work.
+[26:22] That's how I'm really productive. I was
+[26:23] thinking about building one, but I
+[26:24] thought to myself, okay, if I had a
+[26:26] dashboard, what would I want to see? And
+[26:29] when I started to think about what I
+[26:30] wanted to see, there really wasn't
+[26:31] anything that to me was too important
+[26:33] that I can't see already or I can't just
+[26:35] have Cloud Code pull in the data for me.
+[26:37] So, if you want a custom dashboard to
+[26:39] build, certainly grab Cloud Code, have
+[26:42] it build you a dashboard. But for me
+[26:43] personally, I just honestly don't see
+[26:45] too much value in that. The way that I
+[26:47] like to think about if I add features to
+[26:49] my AIOS or if I add a new skill to my
+[26:52] brain is I think about my northstar.
+[26:55] What is my ultimate goal at the end of
+[26:57] each month that I want to say that I
+[26:58] made progress on? And if doing
+[27:01] something, if spending time on something
+[27:02] doesn't actually move me closer to that
+[27:04] goal, then I'm not going to do it. And
+[27:07] so I think like if you start to think
+[27:08] about metrics, right? Like what are what
+[27:09] are the metrics that are important to
+[27:10] me? Maybe that's my free school members.
+[27:13] Maybe that is our monthly recurring
+[27:15] revenue. Does having a a dashboard, a
+[27:18] pretty visual AIOS dashboard that shows
+[27:20] me these metrics going to improve the
+[27:22] metrics? Some could argue yes if you're
+[27:25] like a visual person and you need that
+[27:27] to help with your decision- making and
+[27:29] your brainstorming. But the fact that
+[27:31] the metrics exist and the fact that I
+[27:33] can pull those in immediately, that's
+[27:35] what actually matters to me. So just
+[27:37] wanted to sort of like throw out there
+[27:38] once again, I don't think that there's
+[27:40] anything necessarily wrong with that. I
+[27:42] don't think that there's a right or
+[27:44] wrong answer. I think a lot of people
+[27:45] are making up their own AIOS's and
+[27:47] however they want to work is perfectly
+[27:48] fine. I think that's the beauty of it.
+[27:50] But just think about productivity.
+[27:53] Productivity isn't how many hours did I
+[27:54] work today. Productivity is did I
+[27:57] actually move the needle closer to my
+[27:59] goal. And that's how you can stop
+[28:00] getting so overwhelmed with all these AI
+[28:02] tools and you know switching between
+[28:04] things. That is the beauty of it. So
+[28:06] anyways guys, I know this one was a
+[28:08] little bit shorter, but I wanted to keep
+[28:09] it short. I wanted to keep it very very
+[28:11] like mindset oriented because I think
+[28:14] the mindset stuff about the way that you
+[28:15] use this, the way you set it up, and the
+[28:17] way that you actually feel ROI is really
+[28:19] really important. But just remember in
+[28:20] my free school community, you can come
+[28:21] in here and get that full 3-hour course
+[28:24] on how you actually build this out in
+[28:26] cloud code. And you also can use this
+[28:28] exact free GitHub repo, which I will
+[28:30] link in the free school community as
+[28:32] well in order to just clone this in
+[28:34] onboard into your AISOS and then just
+[28:36] start pumping that thing full of those
+[28:38] four C's we talked about, which were
+[28:40] once again hopefully you guys remember,
+[28:41] context, connections, capabilities, and
+[28:44] cadence. So anyways, that is going to do
+[28:45] it for this one. I hope that you guys
+[28:47] enjoyed and I hope that you learned
+[28:48] something new. If you did, please give
+[28:50] it a like. It helps me out a ton. And as
+[28:51] always, I appreciate you guys making it
+[28:52] to the end of the video and I will see
+[28:54] you all in the next one. Thanks guys.
