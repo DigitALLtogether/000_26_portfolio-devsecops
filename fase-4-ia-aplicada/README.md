@@ -6,6 +6,7 @@
 > Camada de especialização — não é um endpoint mas uma vantagem competitiva permanente.
 
 ## Certificações desta fase
+- **EX267 — Red Hat Certified Specialist in OpenShift AI** (Kyndryl) ← RHCA
 - AWS AI Practitioner (Kyndryl)
 - AWS ML Engineer Associate (Kyndryl)
 - GCP Pro DevOps Engineer (Kyndryl)
@@ -21,4 +22,5 @@
 ## Conteúdo
 | Pasta | Descrição |
 |-------|-----------|
+| `openshift-ai-ex267/` | Deploy e gestão de modelos ML/AI em OpenShift AI (EX267) |
 | `projectos/` | Projectos práticos de IA aplicada a DevSecOps |

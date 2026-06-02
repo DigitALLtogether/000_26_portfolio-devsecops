@@ -6,8 +6,9 @@
 > Esta fase é o ponto de inflexão — primeiro pivô real para o mercado DevSecOps.
 
 ## Certificações desta fase
-- EX280 — Red Hat OpenShift Administration (Kyndryl)
-- EX374 — Ansible Automation Platform Development (Kyndryl)
+- EX280 — Red Hat OpenShift Administration (Kyndryl) ← RHCA
+- EX374 — Ansible Automation Platform Development (Kyndryl) ← RHCA
+- **EX415 — Red Hat Certified Specialist in Security: Linux** (Kyndryl) ← RHCA
 - Vault Associate — HashiCorp (Kyndryl/IBM)
 - NSE 4 — FortiGate Firewall (Kyndryl)
 - Dynatrace Associate (Kyndryl)
@@ -21,6 +22,7 @@
 |-------|-----------|
 | `openshift-ex280/` | Administração OpenShift, operadores, RBAC |
 | `ansible-aap-ex374/` | Ansible Automation Platform development |
+| `security-ex415/` | Hardening RHEL — SELinux, AIDE, LUKS, OpenSCAP (EX415) |
 | `vault/` | Gestão de segredos, PKI, integração K8s |
 | `owasp/` | OWASP Top 10, API Security, Threat Modeling STRIDE |
 | `observabilidade/` | Prometheus, Grafana, Dynatrace, Elastic |

@@ -7,6 +7,7 @@
 - CKA — Certified Kubernetes Administrator (Linux Foundation via Kyndryl)
 - Terraform Associate 004 (Kyndryl/IBM)
 - RHCE EX294 — Red Hat Certified Engineer / Ansible (Kyndryl)
+- **EX188 — Red Hat Certified Specialist in Containers** (Kyndryl) ← RHCA
 - AWS SysOps Administrator Associate (Kyndryl)
 - GitHub Actions GH-200 (Kyndryl)
 
@@ -14,6 +15,7 @@
 | Pasta | Descrição |
 |-------|-----------|
 | `docker/` | Containers, imagens, Docker Compose |
+| `containers-ex188/` | Podman, Buildah, Skopeo — containers OCI Red Hat (EX188) |
 | `kubernetes-cka/` | Orquestração, deployments, networking K8s |
 | `terraform/` | Infrastructure as Code, AWS com Terraform |
 | `ansible-rhce/` | Automação enterprise com Ansible/RHCE |
