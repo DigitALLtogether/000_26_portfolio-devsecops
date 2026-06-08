@@ -23,5 +23,10 @@ Cada pasta corresponde a uma fase e certificação — notas reais, labs pratica
 `Linux` `Networking` `Python` `Bash` `Docker` `Kubernetes` `Terraform` `Ansible`  
 `OpenShift` `Vault` `AWS` `CI/CD` `OWASP` `Prometheus` `Grafana` `Dynatrace`
 
+## Portfólio público
+Os labs e projectos seleccionados estão disponíveis em
+[DigitALLtogether/portfolio-devsecops](https://github.com/DigitALLtogether/portfolio-devsecops),
+sincronizado automaticamente via GitHub Actions a partir da pasta `portfolio/` deste repositório.
+
 ## Contacto
 [LinkedIn](#) | [Email](#)

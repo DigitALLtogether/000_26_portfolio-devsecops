@@ -1,0 +1,29 @@
+name: Sync Portfolio
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'portfolio/**'
+
+jobs:
+  sync-portfolio:
+    runs-on: ubuntu-latest
+    name: Sincronizar portfolio para repositório público
+
+    steps:
+      - name: Checkout repositório principal
+        uses: actions/checkout@v4
+
+      - name: Push para portfolio-devsecops
+        uses: cpina/github-action-push-to-another-repository@v1.7.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PORTFOLIO_TOKEN }}
+        with:
+          source-directory: portfolio
+          destination-github-username: DigitALLtogether
+          destination-repository-name: portfolio-devsecops
+          target-branch: main
+          commit-message: "sync: ${{ github.event.head_commit.message }}"
+          user-name: github-actions[bot]
+          user-email: github-actions[bot]@users.noreply.github.com

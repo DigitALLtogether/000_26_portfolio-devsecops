@@ -17,6 +17,8 @@ Não é um projecto de software com build/test — é um repositório documental
 | `fase-4-devsecops-pro-security/` | Fev – Jul 2028 | AWS Pro/Security, CKS, OpenShift ACS, Palo Alto |
 | `fase-5-advanced-ai-applications/` | 2029+ | AI/ML aplicado a DevSecOps, projectos de portfólio |
 | `diario/` | Contínuo | Diário de sessões de trabalho |
+| `portfolio/` | Contínuo | Labs e projectos curados para visitantes externos |
+| `docs/templates/` | — | Templates reutilizáveis para labs de estudo e portfólio |
 
 ## Convenções de nomes e conteúdo
 
@@ -25,10 +27,18 @@ Exemplo: `2026-06-01_inicio-percurso.md`
 
 **Dentro de cada módulo** (ex: `fase-1-devsecops-foundations/linux-rhcsa/`):
 - `notas/` — resumos e apontamentos teóricos
-- `labs/` — relatórios e ficheiros produzidos em ambiente prático
+- `labs/` — relatórios e ficheiros produzidos em ambiente prático (usar template `docs/templates/lab-estudo.md`)
 - `scripts/` ou `manifests/` ou `playbooks/` ou `configs/` — artefactos executáveis, conforme o módulo
 
 **READMEs:** cada fase e cada módulo tem o seu próprio README com contexto, certificações-alvo e descrição das subpastas.
+
+**Templates de labs:**
+- Lab de estudo → copiar `docs/templates/lab-estudo.md` para `fase-X/modulo/labs/`
+- Lab de portfólio → copiar `docs/templates/lab-portfolio.md` para `portfolio/fase-X/modulo/`
+
+**Portfólio público (`portfolio/`):** espelha a estrutura de fases mas contém apenas labs curados.
+Sincroniza automaticamente com `DigitALLtogether/portfolio-devsecops` via GitHub Actions
+sempre que há um push para `main` com alterações em `portfolio/**`.
 
 ## Regras de segurança (.gitignore)
 
