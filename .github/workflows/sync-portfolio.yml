@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'portfolio/**'
+  workflow_dispatch:
 
 jobs:
   sync-portfolio:
