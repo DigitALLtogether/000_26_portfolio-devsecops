@@ -62,9 +62,15 @@ Ao adicionar conteúdo novo:
 
 Gatilho: `"Kody, encerra sessão."` ou variação equivalente (ex: "fecha sessão", "termina sessão", "encerra a conversa").
 
-Acção: gerar e guardar automaticamente um ficheiro em `diario/` com o formato `AAAA-MM-DD_tema.md`, onde o tema descreve o foco da sessão.
+Acção: sequência obrigatória na ordem indicada:
+1. Gerar e guardar o ficheiro de diário em `diario/` com o formato `AAAA-MM-DD_tema.md`
+2. Fazer `git add` de todos os ficheiros alterados na sessão (incluindo o diário)
+3. Fazer `git commit` com mensagem descritiva em português
+4. Fazer `git push origin main` para sincronizar com o GitHub (o que dispara o GitHub Action de sync do portfolio se houver alterações em `portfolio/**`)
 
-Secções obrigatórias:
+> **Nota:** O sync automático do portfolio só dispara quando existem alterações em `portfolio/**`. Para forçar uma sincronização manual usar `workflow_dispatch` no GitHub Actions.
+
+Secções obrigatórias do ficheiro de diário:
 - **Contexto de partida** — estado do projecto no início da sessão
 - **Objectivo** — o que se pretendia fazer
 - **O que foi feito** — resumo do trabalho realizado
