@@ -40,7 +40,7 @@ portfolio/
 |------|--------------|
 | Fase 1 | RHCSA · CCNA · NSE 1+2+3 · AWS CCP · GitHub Foundations |
 | Fase 2 | CKA · Terraform Associate · RHCE · EX188 · AWS SysOps · GitHub Actions |
-| Fase 3 | EX280 · EX374 · EX415 · Vault · NSE4 · Dynatrace · Elastic |
+| Fase 3 | EX280 · EX374 · EX415 · Vault · NSE4 · Dynatrace · Elastic · Grafana · AWS Dev. |
 | Fase 4 | AWS DevOps Pro · AWS Security · CKS · EX430 · PCNSA |
 | Fase 5 | EX267 · AWS AI/ML · GCP Pro DevOps · Databricks · GitHub Copilot |
 

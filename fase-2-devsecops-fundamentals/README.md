@@ -20,3 +20,5 @@
 | `terraform/` | Infrastructure as Code, AWS com Terraform |
 | `ansible-rhce/` | Automação enterprise com Ansible/RHCE |
 | `supply-chain-security/` | Snyk, Trivy, Grype, OWASP Dependency-Track |
+| `aws-sysops/` | Operações AWS — EC2, CloudWatch, IAM, S3, RDS |
+| `github-actions/` | CI/CD com GitHub Actions, workflows e automação (GH-200) |

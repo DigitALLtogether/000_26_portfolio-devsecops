@@ -18,4 +18,6 @@
 | `aws-devops-pro/` | CI/CD avançado, multi-account, IaC enterprise |
 | `aws-security/` | IAM, KMS, GuardDuty, Security Hub, Macie |
 | `kubernetes-cks/` | K8s security: RBAC, network policies, Falco, OPA |
+| `openshift-acs-ex430/` | Red Hat ACS — segurança de clusters OpenShift/K8s |
+| `palo-alto-pcnsa/` | Palo Alto Networks — firewall, VPN, App-ID, IPS |
 | `incident-response/` | IR playbooks, análise forense, BlueTeamLabs |

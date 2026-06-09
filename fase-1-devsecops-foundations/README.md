@@ -15,6 +15,7 @@
 |-------|-----------|
 | `linux-rhcsa/` | Administração Linux, Bash, SELinux, systemd |
 | `redes-ccna/` | Redes, routing, switching, protocolos |
-| `seguranca-nse/` | Fundamentos de cibersegurança Fortinet |
+| `seguranca-nse/` | Fundamentos de cibersegurança Fortinet (NSE 1+2+3) |
 | `python/` | Automação e scripting Python |
 | `aws-ccp/` | Cloud fundamentals AWS |
+| `github-foundations/` | Git, GitHub, colaboração e gestão de repositórios (GH-900) |

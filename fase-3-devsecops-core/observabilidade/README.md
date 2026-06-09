@@ -1,7 +1,7 @@
 # Observabilidade
 
-**Certificações:** Dynatrace Associate + Elastic Observability Engineer  
-**Custeamento:** Kyndryl (Costed Learning)
+**Certificações:** Dynatrace Associate · Elastic Observability Engineer · Grafana Associate  
+**Custeamento:** Kyndryl (Dynatrace + Elastic) · Gratuito (Grafana University)
 
 ## Ferramentas abordadas
 - Prometheus — métricas e alertas

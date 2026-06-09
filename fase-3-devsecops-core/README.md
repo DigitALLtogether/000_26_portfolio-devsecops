@@ -13,6 +13,7 @@
 - NSE 4 — FortiGate Firewall (Kyndryl)
 - Dynatrace Associate (Kyndryl)
 - Elastic Observability Engineer (Kyndryl)
+- Grafana Associate (Gratuito — Grafana University)
 - AWS Developer Associate (Kyndryl)
 - GitHub Advanced Security (Kyndryl)
 - DevSecOps Foundation (custo próprio)
@@ -26,3 +27,7 @@
 | `vault/` | Gestão de segredos, PKI, integração K8s |
 | `owasp/` | OWASP Top 10, API Security, Threat Modeling STRIDE |
 | `observabilidade/` | Prometheus, Grafana, Dynatrace, Elastic |
+| `seguranca-nse4/` | FortiGate Security — firewall, VPN, IPS (NSE 4) |
+| `aws-developer/` | AWS Lambda, API Gateway, DynamoDB, CI/CD nativo |
+| `github-advanced-security/` | CodeQL, secret scanning, dependency review |
+| `devsecops-foundation/` | Cultura e práticas DevSecOps — DevOps Institute |
